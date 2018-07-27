@@ -11,9 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * User
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-
+// * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
 class User extends BaseUser
 {
     /**
@@ -26,6 +25,6 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+
     }
 }
