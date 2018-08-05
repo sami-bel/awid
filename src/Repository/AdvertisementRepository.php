@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Advertisement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -14,10 +15,34 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class AdvertisementRepository extends ServiceEntityRepository
 {
+    /**
+     * @var EntityManager
+     */
+    private $em ;
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Advertisement::class);
+        $this->em = $this->getEntityManager();
+
     }
+
+    public function addAdvertisement(Advertisement $adver)
+    {
+        $this->em->persist($adver);
+        $this->em->flush();
+    }
+
+    public function findAdvertisement( int $id): Advertisement
+    {
+        return $this->em->find(Advertisement::class,$id);
+    }
+
+
+
+
+
+
 
 //    /**
 //     * @return Advertisement[] Returns an array of Advertisement objects
