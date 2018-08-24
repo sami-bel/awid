@@ -1,0 +1,29 @@
+
+body{
+    background-color:#63c470;
+    background-image:url("../images/background.jpg") !important;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    margin: 0;
+}
+
+.body{
+    min-height: 626px;
+    margin-top: 100px !important;
+}
+
+.my-menu{
+    margin-bottom: 0px !important ;
+}
+
+@media screen and (max-width: 700px) {
+    .body{
+        min-height: 400px;
+        margin-top: 100px !important;
+    }
+}
+
+.center {
+    text-align: center;
+}
