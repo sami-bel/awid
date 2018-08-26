@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7a3ce308-b15a-4014-afcc-c4d308e34311" name="awidServ" url="http://51.68.120.76">
+        <fileTransfer host="51.68.120.76" port="22" rootFolder="/var/www/html/awid" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

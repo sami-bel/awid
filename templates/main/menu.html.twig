@@ -14,10 +14,22 @@
         <!--menu droite-->
         <div class="navbar-right collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="#" class="btn btnjcm menubtn">Accueil</a></li>
-                <li><a class="btn btnjcm menubtn" href="#">Comment ça marche</a></li>
-				<li><a class="btn btnjcm menubtn" name="button" data-toggle="modal" data-target="#myModal">Se connecter</a></li>
-                <li><a href="#" class="btn btnjcm menubtn">S'inscrire</a></li>
+                <li><a href="#" class="btn  menubtn">Accueil</a></li>
+                <li><a class="btn  menubtn" href="#">Comment ça marche</a></li>
+                {% if app.user != null  %}
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <img src="/css/profile.png" class="profil_photo" alt="photo de profile" style="margin-top: -8px; border-radius: 5px;  height:25px; width:25px">
+                            {{ app.user.username }}
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mon profile</a></li>
+                            <li><a href="#">Mes colis</a></li>
+                            <li><a href="#">Mes trajets</a></li>
+                            <li><a href="#">Ma messagerie</a></li>
+                            <li><a href="/logout">Deconnexion</a></li>
+                        </ul>
+                    </li>
+                {%  endif %}
             </ul>
         </div>
     </div>
