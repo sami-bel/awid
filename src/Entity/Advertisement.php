@@ -52,7 +52,12 @@ class Advertisement
     /**
      * @ORM\Column(type="integer", length=255, nullable=true)
      */
-    private $type;
+    private $packageType;
+
+    /**
+     * @ORM\Column(type="integer", length=255, nullable=true)
+     */
+    private $advertisementType;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -78,6 +83,11 @@ class Advertisement
      * @ORM\Column(type="float", nullable=true)
      */
     private $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     */
+    private $user;
 
     public function getId()
     {
@@ -200,29 +210,6 @@ class Advertisement
         return $this;
     }
 
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-
-    /**
-     * @param mixed $type
-     *
-     * @return Advertisement
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-
     /**
      * @return mixed
      */
@@ -243,5 +230,60 @@ class Advertisement
 
         return $this;
     }
+
+    /**
+     * @return User
+     */
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     * @return Advertisement
+     */
+    public function setUser( User $user): self
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPackageType()
+    {
+        return $this->packageType;
+    }
+
+    /**
+     * @param mixed $packageType
+     */
+    public function setPackageType($packageType)
+    {
+        $this->packageType = $packageType;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getAdvertisementType(): ?integer
+    {
+        return $this->advertisementType;
+    }
+
+    /**
+     * @param mixed $advertisementType
+     * @return Advertisement
+     */
+    public function setAdvertisementType($advertisementType): self
+    {
+        $this->advertisementType = $advertisementType;
+        return $this;
+    }
+
+
+
 
 }
