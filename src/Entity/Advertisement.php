@@ -10,9 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Advertisement
 {
 
-    CONST AIR_TRANSPORT_MODE      = 1 ;
-    CONST TRAIN_TRANSPORT_MODE    = 2 ;
-    CONST MARITIME_TRANSPORT_MODE = 3 ;
+    CONST AIR_TRANSPORT_MODE      = 1;
+    CONST TRAIN_TRANSPORT_MODE    = 2;
+    CONST MARITIME_TRANSPORT_MODE = 3;
     CONST ROAD_TRANSPORT_MODE     = 4;
 
 
@@ -59,6 +59,17 @@ class Advertisement
      */
     private $advertisementType;
 
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $fromCountry;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $toCountry;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -68,6 +79,7 @@ class Advertisement
      * @ORM\Column(type="string", length=255)
      */
     private $toCity;
+
 
     /**
      * @ORM\Column(type="datetime")
@@ -116,6 +128,29 @@ class Advertisement
         return $this;
     }
 
+    public function getFromCountry(): ?string
+    {
+        return $this->fromCountry;
+    }
+
+    public function setFromCountry(string $fromCountry): self
+    {
+        $this->fromCity = $fromCountry;
+
+        return $this;
+    }
+
+    public function getToCountry(): ?string
+    {
+        return $this->toCountry;
+    }
+
+    public function setToCountry(string $toCountry): self
+    {
+        $this->toCity = $toCountry;
+
+        return $this;
+    }
 
 
     public function getFromCity(): ?string

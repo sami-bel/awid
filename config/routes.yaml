@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\MainController::index
+
+add_advertisement:
+    path: /add_advertisement
+    controller: App\Controller\AdvertisementController::addAdvertisement
