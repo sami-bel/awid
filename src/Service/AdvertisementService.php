@@ -27,7 +27,6 @@ class AdvertisementService implements IAdvertisementService
 
     public function addAdvertisement( Advertisement $adver) : Advertisement
     {
-
         return $this->advertisementRepository->addAdvertisement($adver);
     }
 }

@@ -27,21 +27,17 @@ class AdvertisementRepository extends ServiceEntityRepository
 
     }
 
-    public function addAdvertisement(Advertisement $adver)
+    public function addAdvertisement(Advertisement $adver) : Advertisement
     {
         $this->em->persist($adver);
         $this->em->flush();
+        return $adver;
     }
 
     public function findAdvertisement( int $id): Advertisement
     {
         return $this->em->find(Advertisement::class,$id);
     }
-
-
-
-
-
 
 
 //    /**

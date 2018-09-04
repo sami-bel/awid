@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdvertisementRepository")
@@ -26,6 +27,10 @@ class Advertisement
     CONST WEIGHT_1_3      = 2 ;
     CONST WEIGHT_3_5      = 3 ;
     CONST WEIGHT_HIGHER_5 = 4 ;
+
+    CONST ADVERTISEMENT_TAKE = 1;
+    CONST ADVERTISEMENT_SEND = 2;
+
 
     /**
      * @ORM\Id()
@@ -128,54 +133,94 @@ class Advertisement
         return $this;
     }
 
-    public function getFromCountry(): ?string
+
+    /**
+     * @return mixed
+     */
+    public function getFromCountry()
     {
         return $this->fromCountry;
     }
 
-    public function setFromCountry(string $fromCountry): self
+
+    /**
+     * @param mixed $fromCountry
+     *
+     * @return Advertisement
+     */
+    public function setFromCountry($fromCountry)
     {
-        $this->fromCity = $fromCountry;
+        $this->fromCountry = $fromCountry;
 
         return $this;
     }
 
-    public function getToCountry(): ?string
+
+    /**
+     * @return mixed
+     */
+    public function getToCountry()
     {
         return $this->toCountry;
     }
 
-    public function setToCountry(string $toCountry): self
+
+    /**
+     * @param mixed $toCountry
+     *
+     * @return Advertisement
+     */
+    public function setToCountry($toCountry)
     {
-        $this->toCity = $toCountry;
+        $this->toCountry = $toCountry;
 
         return $this;
     }
 
 
-    public function getFromCity(): ?string
+    /**
+     * @return mixed
+     */
+    public function getFromCity()
     {
         return $this->fromCity;
     }
 
-    public function setFromCity(string $fromCity): self
+
+    /**
+     * @param mixed $fromCity
+     *
+     * @return Advertisement
+     */
+    public function setFromCity($fromCity)
     {
         $this->fromCity = $fromCity;
 
         return $this;
     }
 
-    public function getToCity(): ?string
+
+    /**
+     * @return mixed
+     */
+    public function getToCity()
     {
         return $this->toCity;
     }
 
-    public function setToCity(string $toCity): self
+
+    /**
+     * @param mixed $toCity
+     *
+     * @return Advertisement
+     */
+    public function setToCity($toCity)
     {
         $this->toCity = $toCity;
 
         return $this;
     }
+
 
     public function getDate(): ?\DateTimeInterface
     {
@@ -275,10 +320,10 @@ class Advertisement
     }
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      * @return Advertisement
      */
-    public function setUser( User $user): self
+    public function setUser( UserInterface $user): self
     {
         $this->user = $user;
         return $this;

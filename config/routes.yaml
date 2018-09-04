@@ -4,4 +4,4 @@ index:
 
 add_advertisement:
     path: /add_advertisement
-    controller: App\Controller\AdvertisementController::addAdvertisement
+    controller: App\Controller\AdvertisementController::addSendingAdvertisement
