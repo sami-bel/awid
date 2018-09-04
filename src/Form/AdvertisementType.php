@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Intl\Intl;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AdvertisementType extends AbstractType
@@ -46,8 +47,12 @@ class AdvertisementType extends AbstractType
             ->add('packageType', ChoiceType::class, [
                 'choices' => $this->packageType
             ])
-            ->add('fromCountry')
-            ->add('toCountry')
+            ->add('fromCountry',ChoiceType::class, [
+                'choices' => array_combine(array_values(Intl::getRegionBundle()->getCountryNames()),array_keys(Intl::getRegionBundle()->getCountryNames()))
+                ])
+            ->add('toCountry',ChoiceType::class, [
+                'choices' => array_combine(array_values(Intl::getRegionBundle()->getCountryNames()),array_keys(Intl::getRegionBundle()->getCountryNames()))
+            ])
             ->add('fromCity')
             ->add('toCity')
             ->add('date')
