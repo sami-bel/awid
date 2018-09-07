@@ -31,6 +31,10 @@ class Advertisement
     CONST ADVERTISEMENT_TAKE = 1;
     CONST ADVERTISEMENT_SEND = 2;
 
+    CONST ADVERTISEMENT_TAKE_TYPE = "take";
+    CONST ADVERTISEMENT_SEND_TYPE = "send";
+
+
 
     /**
      * @ORM\Id()

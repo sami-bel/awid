@@ -34,10 +34,35 @@ class AdvertisementRepository extends ServiceEntityRepository
         return $adver;
     }
 
+    public function updateAdvertisement(Advertisement $adver) : Advertisement
+    {
+        $this->em->persist($adver);
+        $this->em->flush();
+        return $adver;
+    }
+
+    public function deleteAdvertisement(Advertisement $adver)
+    {
+        $this->em->remove($adver);
+        $this->em->flush();
+    }
+
     public function findAdvertisement( int $id): Advertisement
     {
         return $this->em->find(Advertisement::class,$id);
     }
+
+    public function findMyAdvertisements( int $userId): array
+    {
+        return $this->em->getRepository(Advertisement::class)->findBy(['user' => $userId]);
+    }
+
+    public function findAllAdvertisements(): array
+    {
+        return $this->em->getRepository(Advertisement::class)->findAll();
+    }
+
+
 
 
 //    /**

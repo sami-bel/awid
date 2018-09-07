@@ -22,7 +22,7 @@ class AdvertisementController extends AbstractController
 {
 
     /**
-     * @var AdvertisementService
+     * @var IAdvertisementService
      */
     private $advertisementService;
     /**
@@ -30,52 +30,96 @@ class AdvertisementController extends AbstractController
      */
     private $securitySerivce;
 
-
     /**
      * AdvertisementController constructor.
      *
      * @param \App\Interfaces\IAdvertisementService     $advertisementService
      * @param \Symfony\Component\Security\Core\Security $securityService
      */
-    public function __construct(IAdvertisementService $advertisementService, Security $securityService )
+    public function __construct(IAdvertisementService $advertisementService, Security $securityService)
     {
         $this->advertisementService = $advertisementService;
         $this->securitySerivce      = $securityService;
     }
 
-    public function addSendingAdvertisement(Request $request)
+    public function addAdvertisement(Request $request, string $adeverType)
     {
         $adver = new Advertisement();
-        $form  = $this->createForm(AdvertisementType::class,$adver);
+        $form  = $this->createForm(AdvertisementType::class, $adver);
         $user  = $this->securitySerivce->getToken()->getUser();
 
         $form->handleRequest($request);
 
-//        dump($form->getData());
-//        die;
-
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $adver->setAdvertisementType(Advertisement::ADVERTISEMENT_SEND);
+            if ($adeverType == Advertisement::ADVERTISEMENT_SEND_TYPE) {
+                $adver->setAdvertisementType(Advertisement::ADVERTISEMENT_SEND);
+            } else if ($adeverType == Advertisement::ADVERTISEMENT_TAKE_TYPE) {
+                $adver->setAdvertisementType(Advertisement::ADVERTISEMENT_TAKE);
+            } else {
+                return new Response('error');
+            }
+
             $adver->setUser($user);
 
 
             $this->advertisementService->addAdvertisement($adver);
+
             return new Response('ok');
         }
-        return $this->render('advertisement/advertisementForm.html.twig',['form' => $form->createView()]);
+
+        return $this->render('advertisement/advertisementForm.html.twig', ['form' => $form->createView()]);
     }
 
-    public function addTakingAdvertisement(Request $request)
+    public function showAdvertisement(Request $request, string $id){
+
+        $adver = $this->advertisementService->findAdvertisement($id);
+    }
+
+    public function updateAdvertisement(Request $request, string $id)
     {
-        $adver = new Advertisement();
-        $form  = $this->createForm(AdvertisementType::class,$adver);
+        $adver = $this->advertisementService->findAdvertisement($id);
+        if ($adver == null) {
+            // TODO:
+        }
+        $form = $this->createForm(AdvertisementType::class, $adver);
+        $user = $this->securitySerivce->getToken()->getUser();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $adver->setAdvertisementType(Advertisement::ADVERTISEMENT_TAKE);
+            $this->advertisementService->updateAdvertisement($adver);
+
+            return new Response('ok');
         }
-        return $this->render('advertisement/advertisementForm.html.twig',['form' => $form->createView()]);
+
+        return $this->render('advertisement/advertisementForm.html.twig', ['form' => $form->createView()]);
     }
+
+    public function deleteAdvertisement(Request $request, string $id)
+    {
+        $this->advertisementService->deleteAdvertisement($id);
+        return new Response('ok');
+
+    }
+
+    public function getMyAdvertisements(Request $request)
+    {
+        $user           = $this->securitySerivce->getToken()->getUser();
+        $advertisements = $this->advertisementService->getMyAdvertisements($user->getId());
+
+        return $this->render('advertisement/advertisementList.html.twig', ['advertisements' => $advertisements]);
+
+
+    }
+
+    public function getAllAdvertisement(Request $request)
+    {
+        $user           = $this->securitySerivce->getToken()->getUser();
+        $advertisements = $this->advertisementService->getAllAdvertisement();
+
+        return $this->render('advertisement/advertisementList.html.twig', ['advertisements' => $advertisements]);
+
+    }
+
 }

@@ -24,9 +24,40 @@ class AdvertisementService implements IAdvertisementService
         $this->advertisementRepository = $advertisementRepository ;
     }
 
+    public function findAdvertisement( int $id) : Advertisement
+    {
+        return $this->advertisementRepository->find($id);
+    }
 
     public function addAdvertisement( Advertisement $adver) : Advertisement
     {
         return $this->advertisementRepository->addAdvertisement($adver);
+    }
+
+    public function updateAdvertisement( Advertisement $adver) : Advertisement
+    {
+        return $this->advertisementRepository->updateAdvertisement($adver);
+    }
+
+    public function deleteAdvertisement( int $id)
+    {
+        $adver = $this->advertisementRepository->find($id);
+
+        if ($adver == null) {
+            // TODO:
+        }
+        return $this->advertisementRepository->deleteAdvertisement($adver);
+    }
+
+    public function getMyAdvertisements( int $userId): array
+    {
+
+        return $this->advertisementRepository->findMyAdvertisements($userId);
+    }
+
+    public function getAllAdvertisement(): array
+    {
+
+        return $this->advertisementRepository->findAllAdvertisements();
     }
 }

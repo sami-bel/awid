@@ -8,5 +8,16 @@ use App\Entity\Advertisement;
  */
 interface IAdvertisementService
 {
-    public function addAdvertisement( Advertisement $adver);
+    public function findAdvertisement( int $id) : Advertisement;
+
+    public function addAdvertisement( Advertisement $adver) : Advertisement;
+
+    public function updateAdvertisement( Advertisement $adver) : Advertisement;
+
+    public function deleteAdvertisement( int $id);
+
+    public function getMyAdvertisements( int $userId): array;
+
+    public function getAllAdvertisement(): array;
+
 }

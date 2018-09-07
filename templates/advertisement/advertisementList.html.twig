@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ include('main/menu.html.twig') }}
+    {# body #}
+
+    <div class="container body">
+        <p></p>
+        <h3 class="titre">Liste des voyageurs</h3>
+
+        {% for adver in advertisements %}
+            <div  class="row annonce">
+            <!--premiere box-->
+            <div class="col-md-3">
+                <img class="img-colis" src="/images/passenger.png" alt="passenger_img" >
+            </div>
+
+            <!--seconde box-->
+            <div class="col-md-6 text_colis">
+
+                <!--<p>Mode de transport : <?php echo $resultat['nature']; ?>-->
+
+                <p>Trajet :
+                    {{ adver.fromCity }} - {{ adver.fromCountry }}
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    {{ adver.toCity }} - {{ adver.toCountry }}
+                </p>
+
+                <!--<P>Type de colis : <?php echo $resultat['colis']; ?> </p>-->
+                <p>Poid : {{ adver.weight }}
+                <br />
+
+            </div>
+
+            <!--troisieme box-->
+            <div class="col-md-3">
+                <div class="row">
+                    <!--<a href="colis_update.php" class="col-md-12 btn btn-success">Modifier</a>
+                    <a href="colis_drop.php" class="col-md-12 btn btn-danger">Supprimer</a>-->
+                    <form method="post" action="detail_voyage.php" >
+                        <input type="hidden" name="id_colis" value="<?php echo $resultat['id']; ?>">
+                        <button type="submit" class="btn btn-warning">Détail de l'annonce</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+{% endblock body %}
