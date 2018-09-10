@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ include('main/menu.html.twig') }}
+    {# body #}
+
+    <div class="body container form">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock body %}

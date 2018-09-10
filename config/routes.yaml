@@ -23,3 +23,10 @@ get_all_advertisements:
     path: advertisement/all
     controller: App\Controller\AdvertisementController::getAllAdvertisement
 
+
+#------------------------ Message Routes ----------------------------------- #
+
+add_message:
+    path: message/add/{toUserId}
+    controller: App\Controller\MessageController::addMessage
+

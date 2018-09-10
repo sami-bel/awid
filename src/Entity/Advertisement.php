@@ -110,6 +110,11 @@ class Advertisement
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createAt;
+
     public function getId()
     {
         return $this->id;
@@ -366,6 +371,25 @@ class Advertisement
         $this->advertisementType = $advertisementType;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCreateAt(): \DateTime
+    {
+        return $this->createAt;
+    }
+
+    /**
+     * @param mixed $createAt
+     * @return Advertisement
+     */
+    public function setCreateAt( \DateTime $createAt): Advertisement
+    {
+        $this->createAt = $createAt;
+        return $this;
+    }
+
 
 
 

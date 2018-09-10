@@ -26,9 +26,9 @@ class AdvertisementController extends AbstractController
      */
     private $advertisementService;
     /**
-     * @var Security securitySerivce
+     * @var Security securityService
      */
-    private $securitySerivce;
+    private $securityService;
 
     /**
      * AdvertisementController constructor.
@@ -39,14 +39,14 @@ class AdvertisementController extends AbstractController
     public function __construct(IAdvertisementService $advertisementService, Security $securityService)
     {
         $this->advertisementService = $advertisementService;
-        $this->securitySerivce      = $securityService;
+        $this->securityService      = $securityService;
     }
 
     public function addAdvertisement(Request $request, string $adeverType)
     {
         $adver = new Advertisement();
         $form  = $this->createForm(AdvertisementType::class, $adver);
-        $user  = $this->securitySerivce->getToken()->getUser();
+        $user  = $this->securityService->getToken()->getUser();
 
         $form->handleRequest($request);
 
@@ -83,7 +83,7 @@ class AdvertisementController extends AbstractController
             // TODO:
         }
         $form = $this->createForm(AdvertisementType::class, $adver);
-        $user = $this->securitySerivce->getToken()->getUser();
+        $user = $this->securityService->getToken()->getUser();
 
         $form->handleRequest($request);
 
@@ -105,7 +105,7 @@ class AdvertisementController extends AbstractController
 
     public function getMyAdvertisements(Request $request)
     {
-        $user           = $this->securitySerivce->getToken()->getUser();
+        $user           = $this->securityService->getToken()->getUser();
         $advertisements = $this->advertisementService->getMyAdvertisements($user->getId());
 
         return $this->render('advertisement/advertisementList.html.twig', ['advertisements' => $advertisements]);
@@ -115,7 +115,7 @@ class AdvertisementController extends AbstractController
 
     public function getAllAdvertisement(Request $request)
     {
-        $user           = $this->securitySerivce->getToken()->getUser();
+        $user           = $this->securityService->getToken()->getUser();
         $advertisements = $this->advertisementService->getAllAdvertisement();
 
         return $this->render('advertisement/advertisementList.html.twig', ['advertisements' => $advertisements]);
