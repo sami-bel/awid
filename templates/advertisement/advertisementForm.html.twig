@@ -3,15 +3,20 @@
     {{ include('main/menu.html.twig') }}
     {# body #}
 
-    <div class="body container form">
-        <p><br /></p>
-        <h3 class="txt_center">Vous pouvez transorter un colis</h3>
-        <h4 class="txt_center">Partagé nous votre trajet</h4>
-        <br />
-        <br />
+    <div class="container-fluid splash" id="splash">
+        <div class="container">
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+            <div class="container-fluid contact" id="contact">
+                <div class="container">
+
+                    {{ form_start(form) }}
+                     <h2> Ajouter une annonce</h2>
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
     </div>
+
 {% endblock body %}

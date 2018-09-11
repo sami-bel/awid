@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Advertisement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Intl\Intl;
@@ -37,27 +39,66 @@ class AdvertisementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
+            ->add('title',null, array(
+                'label' => false,
+
+                'attr' =>[
+                    'placeholder'=> 'Titre'
+                ]))
             ->add('transportMode', ChoiceType::class, [
-                'choices' => $this->transportMode
+                'choices' => $this->transportMode,
+                'label' => false,
             ])
             ->add('weight', ChoiceType::class, [
-                'choices' => $this->weight
+                'choices' => $this->weight,
+                'label' => false,
             ])
             ->add('packageType', ChoiceType::class, [
-                'choices' => $this->packageType
+                'choices' => $this->packageType,
+                'label' => false,
             ])
             ->add('fromCountry',ChoiceType::class, [
-                'choices' => array_combine(array_values(Intl::getRegionBundle()->getCountryNames()),array_keys(Intl::getRegionBundle()->getCountryNames()))
-                ])
-            ->add('toCountry',ChoiceType::class, [
-                'choices' => array_combine(array_values(Intl::getRegionBundle()->getCountryNames()),array_keys(Intl::getRegionBundle()->getCountryNames()))
+                'choices' => array_combine(array_values(Intl::getRegionBundle()->getCountryNames()),array_keys(Intl::getRegionBundle()->getCountryNames())),
+                'label' => false,
             ])
-            ->add('fromCity')
-            ->add('toCity')
-            ->add('date')
-            ->add('Description')
-            ->add('price')
+            ->add('fromCity',null, array(
+                'label' => false,
+
+                'attr' =>[
+                    'placeholder'=> 'Ville'
+                ]))
+            ->add('toCountry',ChoiceType::class, [
+                'choices' => array_combine(array_values(Intl::getRegionBundle()->getCountryNames()),array_keys(Intl::getRegionBundle()->getCountryNames())),
+                'attr' =>[
+                    'placeholder'=> 'Titre'
+                ],
+                'label' => false
+            ])
+
+            ->add('toCity',null, array(
+                'label' => false,
+
+                'attr' =>[
+                    'placeholder'=> 'Ville'
+                ]))
+            ->add('date',DateType::class, array(
+                'label' => false,
+                'widget' => 'single_text',
+                'attr' =>[
+                    'placeholder'=> 'Titre'
+                ]))
+            ->add('Description',null, array(
+                'label' => false,
+
+                'attr' =>[
+                    'placeholder'=> 'Description'
+                ]))
+            ->add('price',IntegerType::class, array(
+                'label' => false,
+
+                'attr' =>[
+                    'placeholder'=> 'Prix'
+                ]))
             ->add('save', SubmitType::class, array())
         ;
     }

@@ -8,17 +8,13 @@
             <script src="https://code.jquery.com/jquery-3.2.1.js"
                     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
                     crossorigin="anonymous"></script>
-            <!--bootstrap-->
-            <link rel="stylesheet" href="/css/bootstrap.css" />
-            <script src="/js/bootstrap.js" ></script>
-            <script src="/js/npm.js" ></script>
-            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
             <!--css-->
-            <link rel="stylesheet" href="/css/body.css" type="text/css" media="screen" >
-            <link rel="stylesheet" href="/css/form.css" type="text/css" media="screen" >
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
             <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" >
             {#<link rel="stylesheet" href="/css/style1.css" type="text/css" media="screen" >#}
-            <link rel="stylesheet" href="/css/footer.css" type="text/css" media="screen" >
             <title>{% block title %}Welcome!{% endblock %}</title>
             {% block stylesheets %}{% endblock %}
         </head>
@@ -27,5 +23,7 @@
 
     {% endblock %}
     {% block javascripts %}{% endblock %}
+
+    <script  src="/js/main.js"></script>
     </body>
 </html>
