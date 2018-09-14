@@ -52,14 +52,20 @@ class AdvertisementRepository extends ServiceEntityRepository
         return $this->em->find(Advertisement::class,$id);
     }
 
-    public function findMyAdvertisements( int $userId): array
+    public function findMyAdvertisements( int $userId, int $adverType): array
     {
-        return $this->em->getRepository(Advertisement::class)->findBy(['user' => $userId]);
+        return $this->em->getRepository(Advertisement::class)->findBy(
+            ['user' => $userId,'advertisementType' => $adverType ]
+
+        );
     }
 
-    public function findAllAdvertisements(): array
+    public function findAllAdvertisements(int $adverType): array
     {
-        return $this->em->getRepository(Advertisement::class)->findAll();
+        return $this->em->getRepository(Advertisement::class)->findBy(
+            ['advertisementType' => $adverType ]
+
+        );
     }
 
 

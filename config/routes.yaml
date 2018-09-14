@@ -4,7 +4,7 @@ index:
 
 # -------------------- advertisement routes ----------------------------- #
 add_advertisement:
-    path: advertisement/add/{adeverType}
+    path: advertisement/add/{adverType}
     controller: App\Controller\AdvertisementController::addAdvertisement
 
 delete_advertisement:
@@ -16,11 +16,11 @@ update_advertisement:
     controller: App\Controller\AdvertisementController::updateAdvertisement
 
 my_advertisements:
-    path: advertisement/mine
+    path: advertisement/mine/{adverType}
     controller: App\Controller\AdvertisementController::getMyAdvertisements
 
 all_advertisements:
-    path: advertisement/all
+    path: advertisement/all/{adverType}
     controller: App\Controller\AdvertisementController::getAllAdvertisement
 
 

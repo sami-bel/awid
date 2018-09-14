@@ -16,8 +16,8 @@ interface IAdvertisementService
 
     public function deleteAdvertisement( int $id);
 
-    public function getMyAdvertisements( int $userId): array;
+    public function getMyAdvertisements( int $userId,int $adverType): array;
 
-    public function getAllAdvertisement(): array;
+    public function getAllAdvertisement(int $adverType): array;
 
 }

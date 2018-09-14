@@ -1,20 +1,25 @@
 <nav class="container-fluid nav">
     <div class="container cf">
         <div class="brand">
-            <a href="#splash">Jib Colis</a>
+            <a href="/">Jib Colis</a>
         </div>
         <i class="fa fa-bars nav-toggle"></i>
 
         <ul class="menu-nav">
             <li class="menu-nav-li"><a href="/#about">À propos</a></li>
             <li class="menu-nav-li"><a href="/#portfolio">Partenaires</a></li>
+            <li class="menu-nav-li"><a href="{{ path("all_advertisements",{'adverType':1})}}">Trajets</a></li>
+            <li class="menu-nav-li"><a href="{{ path("all_advertisements",{'adverType':2})}}">Colis</a></li>
             <li>
                 <a class="profile-btn">profil</a>
                 <div class="block-menu-profile">
                     <ul class="menu-profile">
-                        <li><a href="{{ path("add_advertisement",{'adeverType':'send'}) }}">Ajouter Annonce</a></li>
-                        <li><a href="{{ path("my_advertisements")}}">Mes annonces</a></li>
+                        <li><a href="{{ path("add_advertisement",{'adverType':2}) }}">Ajouter Colis</a></li>
+                        <li><a href="{{ path("add_advertisement",{'adverType':1}) }}">Ajouter Trajet</a></li>
+                        <li><a href="{{ path("my_advertisements",{'adverType':2})}}">Mes Colis</a></li>
+                        <li><a href="{{ path("my_advertisements",{'adverType':1})}}">Mes Trajets</a></li>
                         <li><a href="#portfolio">setting</a></li>
+                        <li><a href="/logout">Déconnexion</a></li>
                         <ul/>
                 </div>
             </li>

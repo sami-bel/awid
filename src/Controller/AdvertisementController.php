@@ -43,7 +43,7 @@ class AdvertisementController extends AbstractController
         $this->securityService      = $securityService;
     }
 
-    public function addAdvertisement(Request $request, string $adeverType)
+    public function addAdvertisement(Request $request, string $adverType)
     {
         $adver = new Advertisement();
         $form  = $this->createForm(AdvertisementType::class, $adver);
@@ -53,11 +53,12 @@ class AdvertisementController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if ($adeverType == Advertisement::ADVERTISEMENT_SEND_TYPE) {
-                $adver->setAdvertisementType(Advertisement::ADVERTISEMENT_SEND);
-            } else if ($adeverType == Advertisement::ADVERTISEMENT_TAKE_TYPE) {
-                $adver->setAdvertisementType(Advertisement::ADVERTISEMENT_TAKE);
-            } else {
+            if ($adverType == Advertisement::ADVERTISEMENT_SEND ||$adverType == Advertisement::ADVERTISEMENT_TAKE) {
+
+                $adver->setAdvertisementType($adverType);
+            }
+            else
+            {
                 return new Response('error');
             }
 
@@ -66,10 +67,21 @@ class AdvertisementController extends AbstractController
 
             $this->advertisementService->addAdvertisement($adver);
 
-            return new Response('ok');
+            return $this->redirectToRoute('my_advertisements', array('adverType' => $adverType));
         }
 
-        return $this->render('advertisement/advertisementForm.html.twig', ['form' => $form->createView()]);
+        if( $adverType == Advertisement::ADVERTISEMENT_SEND_TYPE  ){
+
+            $adverTitle = "Ajouter un Coli";
+        }else {
+            $adverTitle  = "Ajouter un Trajet";
+        }
+
+        return $this->render('advertisement/advertisementForm.html.twig',
+            [
+                'form'       => $form->createView(),
+                'adverTitle' => $adverTitle,
+            ]);
     }
 
     public function showAdvertisement(Request $request, string $id){
@@ -104,22 +116,45 @@ class AdvertisementController extends AbstractController
 
     }
 
-    public function getMyAdvertisements(Request $request)
+    public function getMyAdvertisements(Request $request, int $adverType)
     {
         $user           = $this->securityService->getToken()->getUser();
-        $advertisements = $this->advertisementService->getMyAdvertisements($user->getId());
+        $advertisements = $this->advertisementService->getMyAdvertisements($user->getId(),$adverType);
 
-        return $this->render('advertisement/advertisementList.html.twig', ['advertisements' => $advertisements]);
+        if( $adverType == Advertisement::ADVERTISEMENT_SEND  ){
+
+            $adverTitle = "Mes Colis";
+        }else {
+            $adverTitle  = "Mes Trajets";
+        }
+
+        return $this->render('advertisement/advertisementList.html.twig',
+            [
+                'advertisements' => $advertisements,
+                'adverTitle'     => $adverTitle,
+            ]
+        );
 
 
     }
 
-    public function getAllAdvertisement(Request $request)
+    public function getAllAdvertisement(Request $request, int $adverType)
     {
         $user           = $this->securityService->getToken()->getUser();
-        $advertisements = $this->advertisementService->getAllAdvertisement();
+        $advertisements = $this->advertisementService->getAllAdvertisement($adverType);
 
-        return $this->render('advertisement/advertisementList.html.twig', ['advertisements' => $advertisements]);
+        if( $adverType == Advertisement::ADVERTISEMENT_SEND  ){
+
+            $adverTitle = "Colis";
+        }else {
+            $adverTitle  = "Trajets";
+        }
+
+        return $this->render('advertisement/advertisementList.html.twig', [
+            'advertisements' => $advertisements,
+            'adverTitle'     => $adverTitle,
+        ]
+        );
 
     }
 

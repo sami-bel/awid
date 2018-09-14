@@ -49,15 +49,15 @@ class AdvertisementService implements IAdvertisementService
         return $this->advertisementRepository->deleteAdvertisement($adver);
     }
 
-    public function getMyAdvertisements( int $userId): array
+    public function getMyAdvertisements( int $userId, int $adverType): array
     {
 
-        return $this->advertisementRepository->findMyAdvertisements($userId);
+        return $this->advertisementRepository->findMyAdvertisements($userId, $adverType);
     }
 
-    public function getAllAdvertisement(): array
+    public function getAllAdvertisement(int $adverType): array
     {
 
-        return $this->advertisementRepository->findAllAdvertisements();
+        return $this->advertisementRepository->findAllAdvertisements($adverType);
     }
 }
