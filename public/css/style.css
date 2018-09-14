@@ -130,7 +130,7 @@ nav .nav-toggle {
   z-index: 1000
 }
 
-nav ul {
+nav .menu-nav {
   border-top: 1px solid #ccc;
   clear: both;
   list-style: none;
@@ -139,12 +139,12 @@ nav ul {
   z-index: 999;
 }
 
-nav ul li {
+nav .menu-nav li {
   border-bottom: 1px solid #ccc;
   text-align: center;
 }
 
-nav ul li a {
+nav .menu-nav li a {
   color: #444;
   display: block;
   padding: .75em;
@@ -331,7 +331,7 @@ Media Queries
     display: none;
   }
 
-  nav ul {
+  nav .menu-nav {
     border: none;
     clear: none;
     display: inline-block !important;
@@ -340,18 +340,18 @@ Media Queries
     padding: 25px 0;
   }
 
-  nav ul li {
+  nav .menu-nav li {
     border: none;
     display: inline-block;
     float: left;
     margin-right: 1.5em;
   }
 
-  nav ul li:last-of-type {
+  nav .menu-nav li:last-of-type {
     margin-right: 0;
   }
 
-  nav ul li a {
+  nav .menu-nav li a {
     padding: 0;
   }
 

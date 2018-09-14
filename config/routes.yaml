@@ -15,11 +15,11 @@ update_advertisement:
     path: advertisement/update/{id}
     controller: App\Controller\AdvertisementController::updateAdvertisement
 
-get_my_advertisements:
+my_advertisements:
     path: advertisement/mine
     controller: App\Controller\AdvertisementController::getMyAdvertisements
 
-get_all_advertisements:
+all_advertisements:
     path: advertisement/all
     controller: App\Controller\AdvertisementController::getAllAdvertisement
 

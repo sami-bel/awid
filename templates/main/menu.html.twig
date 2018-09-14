@@ -4,25 +4,22 @@
             <a href="#splash">Jib Colis</a>
         </div>
         <i class="fa fa-bars nav-toggle"></i>
-        <ul>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#skills">Skills &amp; Experience</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-            {% if app.user != null  %}
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <img src="/css/profile.png" class="profil_photo" alt="photo de profile" style="margin-top: -8px; border-radius: 5px;  height:25px; width:25px">
-                        {{ app.user.username }}
-                        <span class="caret"></span></a>
-                    {#<ul class="dropdown-menu">#}
-                        {#<li><a href="#">Mon profile</a></li>#}
-                        {#<li><a href="#">Mes colis</a></li>#}
-                        {#<li><a href="#">Mes trajets</a></li>#}
-                        {#<li><a href="#">Ma messagerie</a></li>#}
-                        {#<li><a href="/logout">Deconnexion</a></li>#}
-                    {#</ul>#}
-                </li>
-            {%  endif %}
+
+        <ul class="menu-nav">
+            <li class="menu-nav-li"><a href="/#about">À propos</a></li>
+            <li class="menu-nav-li"><a href="/#portfolio">Partenaires</a></li>
+            <li>
+                <a class="profile-btn">profil</a>
+                <div class="block-menu-profile">
+                    <ul class="menu-profile">
+                        <li><a href="{{ path("add_advertisement",{'adeverType':'send'}) }}">Ajouter Annonce</a></li>
+                        <li><a href="{{ path("my_advertisements")}}">Mes annonces</a></li>
+                        <li><a href="#portfolio">setting</a></li>
+                        <ul/>
+                </div>
+            </li>
+
         </ul>
+
     </div>
 </nav>

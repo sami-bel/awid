@@ -4,10 +4,10 @@
 $("nav ul").hide();
 
 $(".nav-toggle").click( function() {
-  $("nav ul").slideToggle("medium");
+  $("nav .menu-nav").slideToggle("medium");
 });
 
-$("nav ul li a, .brand a").click( function() {
+$(".menu-nav-li a, .brand a").click( function() {
   $("nav ul").hide();
 });
 
@@ -61,3 +61,9 @@ $( document ).ready( function() {
 $( window ).resize( function() {
   centerSplash();
 });
+
+//---------------------- AWID --------------------------------
+
+$(document).on('click','.profile-btn',function (){
+  $('.menu-profile').toggle(400);
+} );
