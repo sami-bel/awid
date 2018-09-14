@@ -160,8 +160,9 @@ class Advertisement
      */
     public function getFromCountry()
     {
-        $country = Intl::getRegionBundle()->getCountryNames()[$this->fromCountry];
-        return $country;
+        if ($this->fromCountry)
+            $this->fromCountry = Intl::getRegionBundle()->getCountryNames()[$this->fromCountry];
+        return $this->fromCountry;
     }
 
 
@@ -182,9 +183,9 @@ class Advertisement
      * @return mixed
      */
     public function getToCountry()
-    {
-        $country = Intl::getRegionBundle()->getCountryNames()[$this->toCountry];
-        return $country;
+    {   if ($this->toCountry)
+            $this->toCountry = Intl::getRegionBundle()->getCountryNames()[$this->toCountry];
+        return $this->toCountry;
     }
 
 
