@@ -52,7 +52,7 @@ p {
   line-height: 1.5;
 }
 
-a, a:hover, a:focus, a:active, a:visited {
+a, a:hover a:active {
   color: #E74C3C;
   text-decoration: underline;
 }
@@ -62,7 +62,7 @@ Containers
 ======================== */
 
 .container-fluid {
-  padding: 0 1em;
+  padding: 0 10px;
 }
 
 .container {

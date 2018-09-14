@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\UserInterface;
+use Symfony\Component\Intl\Intl;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdvertisementRepository")
@@ -115,6 +116,17 @@ class Advertisement
      */
     private $createAt;
 
+
+    /**
+     * Advertisement constructor.
+     *
+     *
+     */
+    public function __construct() {
+        $this->createAt = new \DateTime();
+    }
+
+
     public function getId()
     {
         return $this->id;
@@ -148,7 +160,8 @@ class Advertisement
      */
     public function getFromCountry()
     {
-        return $this->fromCountry;
+        $country = Intl::getRegionBundle()->getCountryNames()[$this->fromCountry];
+        return $country;
     }
 
 
@@ -170,7 +183,8 @@ class Advertisement
      */
     public function getToCountry()
     {
-        return $this->toCountry;
+        $country = Intl::getRegionBundle()->getCountryNames()[$this->toCountry];
+        return $country;
     }
 
 
