@@ -19,6 +19,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class MessageController extends AbstractController
 {
@@ -55,8 +56,8 @@ class MessageController extends AbstractController
     {
         $message = new Message();
         $toUser  = $this->userService->findUser($toUserId);
-        $message->setToUser($toUser);
         $user    = $this->securityService->getToken()->getUser();
+
 
         if ($toUser == null)
         {
@@ -69,10 +70,14 @@ class MessageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $message->setCreateAt(new \DateTime());
+            $message->setFromUser($user);
+            $message->setToUser($toUser);
+
 
             $this->MessageService->addMessage($message);
 
-            return new Response('ok');
+            return $this->redirectToRoute('all_advertisements', array('adverType' => 1));
         }
 
         return $this->render('Message/messageForm.html.twig', ['form' => $form->createView()]);

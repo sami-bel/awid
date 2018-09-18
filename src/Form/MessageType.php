@@ -13,13 +13,19 @@ class MessageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('content')
-            ->add('createAt')
-            ->add('seen')
-            ->add('fromUser')
-            ->add('ToUser')
-            ->add('save', SubmitType::class, array())
+            ->add('title',null, array(
+                'label' => false,
+
+                'attr' =>[
+                    'placeholder'=> 'Titre'
+                ]))
+            ->add('content',null, array(
+                'label' => false,
+
+                'attr' =>[
+                    'placeholder'=> 'Message'
+                ]))
+            ->add('Envoyer', SubmitType::class, array())
         ;
     }
 

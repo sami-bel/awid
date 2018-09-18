@@ -1,6 +1,7 @@
 .container-awid {
     width: 100%;
     padding: 45.25px 0px;
+    color: #757575;
 }
 .container-form-awid{
     background-color: #f0f0f0;
@@ -99,6 +100,18 @@
 
 .card-button-link:hover svg {
     fill: #444;
+}
+
+
+/*---------------- Formulaire -------------------*/
+.form-awid{
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 1em;
+    padding: 1em;
+     width: 100%;
+    color: #757575;
 }
 
 @media (min-width: 768px) {
