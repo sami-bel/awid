@@ -48,6 +48,7 @@ class MessageRepository extends ServiceEntityRepository
 
     public function findMessagesByCriteria(array $criteria): array
     {
+
         return $this->em->getRepository(Message::class)->findBy($criteria);
     }
 

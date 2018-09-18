@@ -83,10 +83,21 @@ class MessageController extends AbstractController
         return $this->render('Message/messageForm.html.twig', ['form' => $form->createView()]);
     }
 
-    public function showMessages(Request $request)
+    public function getReceivedMessage(Request $request)
     {
         $user      = $this->securityService->getToken()->getUser();
         $messages  = $this->MessageService->getReceivedMessage($user->getId());
+        return $this->render('Message/messageList.html.twig',["messages" => $messages]);
+
+    }
+
+    public function showMessage(Request $request, int $messageId)
+    {
+        $user    = $this->securityService->getToken()->getUser();
+        $message = $this->MessageService->findMessage($messageId);
+
+        return $this->render('Message/showMessage.html.twig');
+
 
     }
 

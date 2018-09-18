@@ -2,5 +2,27 @@
 {% block body %}
     {{ include('main/menu.html.twig') }}
     {# body #}
+    <div class="container-fluid splash" id="splash">
+        <div class="container-awid">
+
+            <div class="container-form-awid">
+                <h2> Messages </h2>
+                <table style="width:100%">
+                    <tr>
+                        <th>De</th>
+                        <th>Titre</th>
+
+                    </tr>
+                    {% for message in messages  %}
+                        <tr>
+                            <td><a href="{{ path("show_message",{"messageId":message.id}) }}">{{message.fromUser.username}}</a></td>
+                            <td>{{ message.title}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock body %}

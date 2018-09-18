@@ -30,3 +30,12 @@ add_message:
     path: message/add/{toUserId}
     controller: App\Controller\MessageController::addMessage
 
+received_message:
+    path: message/received
+    controller: App\Controller\MessageController::getReceivedMessage
+
+show_message:
+    path: message/show/{messageId}
+    controller: App\Controller\MessageController::showMessage
+
+

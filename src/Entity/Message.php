@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\AdvertisementRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\MessageRepository")
  */
 class Message
 {
@@ -24,10 +24,10 @@ class Message
     private $fromUser;
 
     /**
-     * @var User $ToUser
+     * @var User $toUser
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
-    private $ToUser;
+    private $toUser;
 
 
     /**
@@ -52,13 +52,13 @@ class Message
      * @var boolean $archived
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $archived;
+    private $archived = false;
 
     /**
      * @var boolean $seen
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $seen;
+    private $seen = false;
 
     public function getId()
     {
@@ -88,16 +88,16 @@ class Message
      */
     public function getToUser(): ?User
     {
-        return $this->ToUser;
+        return $this->toUser;
     }
 
     /**
-     * @param User $ToUser
+     * @param User $toUser
      * @return Message
      */
-    public function setToUser(User $ToUser): Message
+    public function setToUser(User $toUser): Message
     {
-        $this->ToUser = $ToUser;
+        $this->toUser = $toUser;
         return $this;
     }
 
