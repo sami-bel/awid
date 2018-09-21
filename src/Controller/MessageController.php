@@ -96,7 +96,7 @@ class MessageController extends AbstractController
         $user    = $this->securityService->getToken()->getUser();
         $message = $this->MessageService->findMessage($messageId);
 
-        return $this->render('Message/showMessage.html.twig');
+        return $this->render('Message/showMessage.html.twig',['message' => $message]);
 
 
     }

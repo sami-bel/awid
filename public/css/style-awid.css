@@ -114,6 +114,28 @@
     color: #757575;
 }
 
+/*---------------- message ----------------------------------*/
+
+.block-message{
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+    margin-bottom: 20px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.block-message div{
+    text-align: initial;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 5px 0;
+}
+
+
+
+/*---------------------- desktop --------------------------*/
+
 @media (min-width: 768px) {
 
     .btn-awid-size{
@@ -123,4 +145,14 @@
         padding: 6px 4px;
         border-radius: 7px;
     }
+
+    .menu-nav{
+        max-height: 10px;
+    }
+
+    .block-menu-profile{
+        display: table-caption;
+        background-color: white;
+    }
+
 }
