@@ -87,7 +87,15 @@ class MessageController extends AbstractController
     {
         $user      = $this->securityService->getToken()->getUser();
         $messages  = $this->MessageService->getReceivedMessage($user->getId());
-        return $this->render('Message/messageList.html.twig',["messages" => $messages]);
+        return $this->render('Message/messageList.html.twig',["messages" => $messages, "send" => false]);
+
+    }
+
+    public function getSentMessage(Request $request)
+    {
+        $user      = $this->securityService->getToken()->getUser();
+        $messages  = $this->MessageService->getSentMessages($user->getId());
+        return $this->render('Message/messageList.html.twig',["messages" => $messages, "send" => true]);
 
     }
 

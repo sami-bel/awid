@@ -34,6 +34,10 @@ received_message:
     path: message/received
     controller: App\Controller\MessageController::getReceivedMessage
 
+sent_message:
+    path: message/sent
+    controller: App\Controller\MessageController::getSentMessage
+
 show_message:
     path: message/show/{messageId}
     controller: App\Controller\MessageController::showMessage

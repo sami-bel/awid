@@ -53,8 +53,8 @@ p {
 }
 
 a, a:hover a:active {
-  color: #E74C3C;
-  text-decoration: underline;
+  /*color: #E74C3C;*/
+  /*text-decoration: underline;*/
 }
 
 /* ========================
