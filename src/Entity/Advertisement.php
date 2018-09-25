@@ -160,8 +160,11 @@ class Advertisement
      */
     public function getFromCountry()
     {
-        if ($this->fromCountry)
-            $this->fromCountry = Intl::getRegionBundle()->getCountryNames()[$this->fromCountry];
+
+
+//        if ($this->fromCountry)
+//            $this->fromCountry = Intl::getRegionBundle()->getCountryNames()[$this->fromCountry];
+
         return $this->fromCountry;
     }
 
@@ -183,8 +186,11 @@ class Advertisement
      * @return mixed
      */
     public function getToCountry()
-    {   if ($this->toCountry)
-            $this->toCountry = Intl::getRegionBundle()->getCountryNames()[$this->toCountry];
+    {
+
+//        if ($this->toCountry)
+//            $this->toCountry = Intl::getRegionBundle()->getCountryNames()[$this->toCountry];
+
         return $this->toCountry;
     }
 
@@ -372,7 +378,7 @@ class Advertisement
     /**
      * @return integer
      */
-    public function getAdvertisementType(): ?integer
+    public function getAdvertisementType(): ?int
     {
         return $this->advertisementType;
     }

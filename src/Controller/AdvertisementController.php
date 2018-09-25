@@ -92,6 +92,7 @@ class AdvertisementController extends AbstractController
     public function updateAdvertisement(Request $request, string $id)
     {
         $adver = $this->advertisementService->findAdvertisement($id);
+
         if ($adver == null) {
             // TODO:
         }
@@ -106,7 +107,14 @@ class AdvertisementController extends AbstractController
             return new Response('ok');
         }
 
-        return $this->render('advertisement/advertisementForm.html.twig', ['form' => $form->createView()]);
+        if( $adver->getAdvertisementType() == Advertisement::ADVERTISEMENT_SEND_TYPE  ){
+
+            $adverTitle = "Modifier un Coli";
+        }else {
+            $adverTitle  = "Modifier un Trajet";
+        }
+
+        return $this->render('advertisement/advertisementForm.html.twig', ['form' => $form->createView(), 'adverTitle' => $adverTitle,]);
     }
 
     public function deleteAdvertisement(Request $request, string $id)
@@ -132,6 +140,7 @@ class AdvertisementController extends AbstractController
             [
                 'advertisements' => $advertisements,
                 'adverTitle'     => $adverTitle,
+                'myAdver'        => true
             ]
         );
 
@@ -153,6 +162,7 @@ class AdvertisementController extends AbstractController
         return $this->render('advertisement/advertisementList.html.twig', [
             'advertisements' => $advertisements,
             'adverTitle'     => $adverTitle,
+            'myAdver'        => false
         ]
         );
 
