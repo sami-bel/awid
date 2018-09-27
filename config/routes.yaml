@@ -42,4 +42,12 @@ show_message:
     path: message/show/{messageId}
     controller: App\Controller\MessageController::showMessage
 
+#-------------------------------Information generale -------------- #
 
+who_we_are:
+    path: informations/whoarewe
+    controller: App\Controller\InformationController::whoAreWe
+
+objective:
+    path: informations/objective
+    controller: App\Controller\InformationController::objective

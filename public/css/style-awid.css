@@ -16,7 +16,7 @@
     padding-bottom: 10px;
 }
 
-.block-advert{
+.block-advert, .block-info{
     background-color: #fff;
     border-radius: 2px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
@@ -27,18 +27,23 @@
     display: flex;
 
 }
-.block-logo-advert{
+.block-logo-advert, .block-logo-info{
     flex-grow: 1;
     border-right: 3px #f3f0f0 solid;
     width: 0;
     min-width: 70px;
 }
 
-.block-logo-advert img{
+.block-info-info{
+    font-size: 0.6em;
+    text-align: justify;
+}
+
+.block-logo-advert img , .block-logo-info img{
     width: 80%;
 }
 
-.block-info-advert{
+.block-info-advert, .block-info-info{
     flex-grow: 5;
 }
 .block-info-advert div{
@@ -133,6 +138,16 @@
 }
 
 
+.info-footer{
+    display: flex;
+    flex-direction:column;
+}
+
+.info-footer a{
+    flex-grow : 1;
+
+}
+
 
 /*---------------------- desktop --------------------------*/
 
@@ -154,5 +169,18 @@
         display: table-caption;
         background-color: white;
     }
+    .info-footer{
+        display: flex;
+        flex-direction:inherit;
+    }
+    .block-logo-info{
+        flex-grow: 1;
+        border-right: 3px #f3f0f0 solid;
+        width: 0;
+        min-width: 220px;
+    }
 
+    .block-info-info{
+        font-size: 0.8em;
+    }
 }
