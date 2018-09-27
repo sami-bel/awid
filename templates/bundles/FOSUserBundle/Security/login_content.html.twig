@@ -1,22 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-
-{#<div class="container-fluid splash" id="splash">#}
-    {#<div class="container">#}
-
-        {#<div class="container-fluid contact" id="contact">#}
-            {#<div class="container-awid">#}
-
-                {#{{ form_start(form) }}#}
-                {#<h2> {{ adverTitle }}</h2>#}
-                {#{{ form_widget(form) }}#}
-                {#{{ form_end(form) }}#}
-            {#</div>#}
-        {#</div>#}
-
-    {#</div>#}
-{#</div>#}
-
 <div class="container">
 
     <form  class="form" action="{{ path("fos_user_security_check") }}" method="post">
@@ -35,5 +18,6 @@
 
     </form>
     <a href="register"> S'inscrire </a>
+    <a href="{{ path("fos_user_resetting_request") }}"> Réinitialiser votre mot de passe </a>
 
 </div>
