@@ -31,3 +31,7 @@ framework:
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
+
+    hwi_oauth:
+        # list of names of the firewalls in which this bundle is active, this setting MUST be set
+        firewall_names: [secured_area]
