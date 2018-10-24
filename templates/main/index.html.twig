@@ -1,84 +1,89 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    {{ include('main/menu.html.twig') }}
-    {# body #}
 
-    <div class="container-fluid splash" id="splash">
-        <div class="container">
-            <img src="/images/logo2.png" alt="Portrait of Mr. Roboto" class="profile-image">
-            <h1>JIB COLIS</h1>
-            <span class="lead">Transport de colis de main à main Entre particuliers</span>
-            <span class="continue"><a href="#about"><i class="fa fa-angle-down"></i></a></span>
-        </div>
-    </div>
+    <div class="body">
+        <div class="section1">
+            <div class="main">
+                <div>
+                    <h3 class="fort">JibColis <img width="30px" height="30px" src="images/logo2.png" alt=""> AwidColis</h3>
+                    <br />
+                    <p>
+                        Transport de colis de main à main
+                        <br>
+                        Entre particuliers
+                    </p>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-3">
+                        <button class="btn btnjbl vertf" name="button" data-toggle="modal" data-target="#loginModal" id="myBtn">Déposer une annonce</button>
+                    </div><!-- .col-md-3-->
+                    <div class="col-md-offset-1 col-md-3">
+                        <button class="btn btnjbr maronf" name="button" data-toggle="modal" data-target="#loginModal">Voir les annonces</button>
+                    </div><!-- .col-md-3-->
+                </div><!-- .row-->
+                <br />
+                <a href="#jibcolis" class="btn btn-link" style="color: white;">en savoir plus ... </a>
+            </div><!-- .main-->
+        </div><!-- .section1-->
 
-    <div class="container-fluid intro" id="about">
-        <div class="container">
-            <h2>À propos</h2>
-            <p>La 1ère plateforme gratuite destinée à la diaspora maghrébine, dans le but de mettre en relation des personnes souhaitant envoyer un colis et les voyageurs acceptant de les transporter.
-                Le voyageur et l'expéditeur sont libres de négocier entre eux une contre partie en échange du service fourni.</p>
-        </div>
-    </div>
+        <div class="section2" id="jibcolis">
+            <div class="container" style="width:80%;padding: 10px;">
+                <div class="row">
+                    <h4 class=""><b>JibColis - AwidColis</b></h4>
+                    <img src="images/logo2.png" style="width:100px;float: right; margin-left:10px;" />
+                    <p style="text-align: justify;margin-top:25px;">
+                        La 1ère plateforme <b>gratuite</b> destinée à la diaspora maghrébine, dans le but de mettre en relation                     des <b>personnes</b> souhaitant envoyer un colis et les <b>voyageurs</b> acceptant de les transporter.
+                        <br/>
+                        Le voyageur et l'expéditeur sont libres de négocier entre eux une contre partie en échange du service fourni.
+                    </p>
+                </div><!-- .row-->
+            </div><!-- .container-->
+        </div><!-- #jibcolis-->
 
-    <div class="container-fluid features" id="skills">
-        <div class="container cf">
-            <h2></h2>
-            <div class="col-3">
-
-                <img src="/images/confiance.png" alt="">
-                <h3>Sécurité/Confiance</h3>
-                <p>Après accord entre le voyageur et le transporteur une attestation constituant une preuve de remise de votre colis est imprimable ICI</p>
-            </div>
-            <div class="col-3">
-                <img src="/images/economie.png" alt="">
-                <h3>Economique/ Solidaire </h3>
-                <p>Un système Voyageur-Expéditeur gagnant- gagnant. Le voyageur peut amortir son billet. De son côté, l’expéditeur évite de se déplacer dans les aéroports ou dans les gares et peut envoyer son colis à moindre coût, voir gratuitement.</p>
-            </div>
-            <div class="col-3">
-                <img src="/images/eco.png" alt="">
-                <h3>Ecologique</h3>
-                <p>Réduire l'émission en CO2 des transports, en optimisant les trajets des voyageurs existants plutôt que d'en créer de nouveaux</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid portfolio" id="portfolio">
-        <div class="container cf">
-            <h2>Partenaires</h2>
-            <div class="gallery">
-                <div class="gallery-image"><img src="https://unsplash.it/800/450?image=250" alt=""></div>
-                <div class="gallery-image"><img src="https://unsplash.it/800/450?image=249" alt=""></div>
-                <div class="gallery-image"><img src="https://unsplash.it/800/450?image=248" alt=""></div>
-                <div class="gallery-image"><img src="https://unsplash.it/800/450?image=247" alt=""></div>
-                <div class="gallery-image"><img src="https://unsplash.it/800/450?image=239" alt=""></div>
-                <div class="gallery-image"><img src="https://unsplash.it/800/450?image=238" alt=""></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid contact" id="contact">
-        <div class="container">
-            <form>
-                <h2>Contact Me</h2>
-                <input type="text" placeholder="Name" id="name" name="name" class="full-half">
-                <input type="email" placeholder="Email" id="email" name="email" class="full-half">
-                <input type="text" placeholder="Subject" id="subject" name="subject">
-                <textarea placeholder="Message" id="message" name="message"></textarea>
-                <input type="submit" value="Send">
-            </form>
-        </div>
-    </div>
-
-    {#<footer class="container-fluid footer">#}
-        {#<div class="container">#}
-            {#<div class="info-footer">#}
-                {#<a href="#" target="_blank"><i>PRÉSENTATION</i></a>#}
-                {#<a href="#" target="_blank"><i>Qui sommes nous</i></a>#}
-                {#<a href="#" target="_blank"><i>NOS OBJECTIFS</i></a>#}
-                {#<a href="#" target="_blank"><i>CGU</i></a>#}
-                {#<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>#}
-                {#<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>#}
-            {#</div>#}
-        {#</div>#}
-    {#</footer>#}
+        <div class="row desc">
+            <div class="container">
+                <div class="col-md-4">
+                    <div class="illus">
+                        <img width="100%" src="images/confiance.png" alt="">
+                    </div>
+                    <p class="desc_text">
+                        Sécurité/Confiance
+                        <br />
+                        <br />
+                        Après accord entre le voyageur et le transporteur une
+                        attestation constituant une preuve de remise de votre colis est imprimable ICI
+                    </p>
+                </div><!-- .col-md-4-->
+                <div class="col-md-4">
+                    <div class="illus">
+                        <img width="100%" src="images/economie.png" alt="">
+                    </div>
+                    <p class="desc_text">
+                        Economique/ Solidaire
+                        <br />
+                        <br />
+                        Un système Voyageur-Expéditeur gagnant- gagnant. Le
+                        voyageur peut amortir son billet.
+                        De son côté, l’expéditeur évite de se déplacer dans les aéroports ou
+                        dans les gares et peut envoyer son colis à moindre coût, voir gratuitement.
+                    </p>
+                </div><!-- .col-md-4-->
+                <div class="col-md-4">
+                    <div class="illus">
+                        <img width="100%" src="images/eco.png" alt="">
+                    </div><!-- .illus-->
+                    <div class="desc_text">
+                        Ecologique
+                        <br />
+                        <br />
+                        <p>
+                            Réduire l'émission en CO2 des transports,
+                            en optimisant les trajets des voyageurs existants plutôt que d'en créer de nouveaux.
+                        </p>
+                    </div><!-- .desc_text-->
+                </div><!-- .col-md-4-->
+            </div><!-- .container-->
+        </div><!-- .desc-->
+    </div><!-- .body-->
 {% endblock body %}

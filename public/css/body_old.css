@@ -1,0 +1,34 @@
+
+body{
+
+    background: url(../images/background1.jpg)  fixed;
+    background-size:cover;
+    margin: 0;
+
+}
+
+.body{
+
+    min-height: 626px;
+    margin-top: 100px !important;
+}
+
+.my-menu{
+    margin-bottom: 0px !important ;
+}
+
+@media screen and (max-width: 700px) {
+    body{
+        background: url(../images/background1.jpg) no-repeat  fixed;
+
+    }
+    .body{
+        min-height: 400px;
+        margin-top: 100px !important;
+
+    }
+}
+
+.center {
+    text-align: center;
+}

@@ -1,0 +1,22 @@
+.center_form{
+  text-align: center;
+  width: 60vw;
+  margin: auto;
+}
+
+.w25{
+  width: 25%;
+}
+
+.flex, .flex>*{
+  display: flex;
+
+}
+
+.txt_center {
+	text-align:center;
+}
+
+.form {
+	background-color: rgba(255,255,255,0.3);
+}

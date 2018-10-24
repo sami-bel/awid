@@ -1,34 +1,30 @@
-
 body{
-
-    background: url(../images/background1.jpg)  fixed;
+	background-color:#63c470;
+	background-image:url("../images/background3.jpg") !important;
+    background-repeat: no-repeat;
     background-size:cover;
+    background-attachment:fixed;
     margin: 0;
-
+    
+    
 }
 
 .body{
-
-    min-height: 626px;
-    margin-top: 100px !important;
+	min-height: 626px;
+	margin-top: 100px !important;
 }
 
 .my-menu{
-    margin-bottom: 0px !important ;
+	margin-bottom: 0px !important ;
 }
 
 @media screen and (max-width: 700px) {
-    body{
-        background: url(../images/background1.jpg) no-repeat  fixed;
-
-    }
-    .body{
-        min-height: 400px;
-        margin-top: 100px !important;
-
-    }
+	.body{
+		min-height: 400px;
+		margin-top: 100px !important;
+	}
 }
 
 .center {
-    text-align: center;
-}
+          text-align: center;
+      }

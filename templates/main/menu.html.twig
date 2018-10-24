@@ -1,31 +1,26 @@
-<nav class="container-fluid nav">
-    <div class="container cf">
-        <div class="brand">
-            <a href="/">Jib Colis</a>
-        </div>
-        <i class="fa fa-bars nav-toggle"></i>
-
-        <ul class="menu-nav">
-            <li class="menu-nav-li"><a href="/#about">À propos</a></li>
-            <li class="menu-nav-li"><a href="/#portfolio">Partenaires</a></li>
-            <li class="menu-nav-li"><a href="{{ path("all_advertisements",{'adverType':1})}}">Trajets</a></li>
-            <li class="menu-nav-li"><a href="{{ path("all_advertisements",{'adverType':2})}}">Colis</a></li>
-            <li>
-                <a class="profile-btn">profil</a>
-                <div class="block-menu-profile">
-                    <ul class="menu-profile">
-                        <li><a href="{{ path("add_advertisement",{'adverType':2}) }}">Ajouter Colis</a></li>
-                        <li><a href="{{ path("add_advertisement",{'adverType':1}) }}">Ajouter Trajet</a></li>
-                        <li><a href="{{ path("my_advertisements",{'adverType':2})}}">Mes Colis</a></li>
-                        <li><a href="{{ path("my_advertisements",{'adverType':1})}}">Mes Trajets</a></li>
-                        <li><a href="{{ path("received_message")}}">Messages</a></li>
-                        <li><a href="#portfolio">setting</a></li>
-                        <li><a href="/logout">Déconnexion</a></li>
-                        <ul/>
-                </div>
-            </li>
-
-        </ul>
-
-    </div>
-</nav>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top my-menu">
+        <div class="container">
+            <!--Nav Left-->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img height="100%" src="images/logo.png" alt="Logo_JIBCOLIS">
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div><!-- .navbar-header-->
+            <!--Nav Right-->
+            <div class="navbar-right collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html" lass="btn btnjcm menubtn">Accueil</a></li>
+                    <li><a lass="btn btnjcm menubtn" href="page-how.html">Comment ça marche</a></li>
+                    <li><a name="button" data-toggle="modal" data-target="#loginModal">Se connecter</a></li>
+                    <li><a name="button" data-toggle="modal" data-target="#registerModal">S'inscrire</a></li>
+                </ul>
+            </div><!-- .navbar-right-->
+        </div><!-- .container-->
+    </nav><!-- .navbar-->
+</header>

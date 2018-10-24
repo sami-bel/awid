@@ -1,0 +1,84 @@
+.section1{
+  
+  	font-weight:bold;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	
+}
+
+/*Inscription form*/
+
+.inscription_form{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.row{
+	
+}
+
+.btn-connect{
+  width: 49%;
+  padding: 10px;
+  border-style: none;
+  color: white;
+}
+
+#btn-fb-connect{
+  background-color: #3b5998;
+}
+
+#btn-gg-connect{
+  background-color: #D50F25;
+}
+
+.inner_form input, .inner_form button{
+  margin: auto;
+  padding: 10px;
+  border-style: none;
+  border-radius: 0px;
+  margin-top: 10px;
+  color: black;
+}
+
+.inner_form input:focus {
+  border-left-style: solid;
+  border-left-width: 5px;
+  border-left-color: #39B54A;
+}
+
+.nom_pre{
+  display: flex;
+}
+
+#prenom{
+  margin-left: 5px;
+}
+.nom_pre input{
+  width: 50%;
+  padding: 10px;
+}
+
+button#btn-cr-acount {
+    width: 100%;
+    background: #39B54A;
+    color: red;
+}
+
+.maj_txt
+{
+	color: black;
+	text-align: center;
+	font-size: 22px;
+}
+
+.label_form
+{
+	margin:auto;
+}
+
+.label_form{
+	margin-left:0px;
+}

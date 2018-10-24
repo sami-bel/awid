@@ -1,0 +1,80 @@
+.container {
+	margin-top: 10px;
+}
+
+.titre {
+	color:white;
+	text-align: center;
+	margin-bottom: 40px;
+	font-family: 'Old Standard TT';font-size: 35px;
+	font-weight:bold;
+
+}
+
+/*.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+*/
+
+.img-colis {
+    width: 100%;
+}
+
+.annonce {
+ 	background-color: rgba(255,255,255, 0.6);
+ 	border-radius: 5px;
+ 	padding: 5px;
+ 	width: 90%;
+    margin: 20px auto;
+}
+
+ .annonce p {
+ 	margin-top:12px;
+}
+
+.colis {
+    margin-top:auto;
+    margin-bottom: auto;
+    margin-left:5%;
+}
+
+.btn-group-vertical {
+   margin-top:auto;
+   margin-bottom:auto;
+   margin-right:5%;
+}
+
+.btn {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.my-colis-buttons {
+	list-style: none;
+	padding: 0;
+}
+.my-colis-buttons li {
+	display: inline-block;
+	margin-right: 5px;
+}
+.buttons-container{
+	float: right;
+}
+/* Responsive */
+@media (max-width:767px) {
+	.row.annonce{
+		text-align: center;
+	}
+	.img-colis{
+		width: 40%;
+	}
+	.buttons-container{
+		float: none;
+	}
+}
+@media (max-width:1024px){
+	.buttons-container{
+		float: none;
+	}
+}
