@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ include('main/menu.html.twig') }}
+    {# body #}
+    <div class="container-fluid splash" id="splash">
+        <div class="container-awid">
+
+            <div class="container-form-awid" >
+                <h2> Messages </h2>
+                <div style="    text-align: -webkit-left;
+                        padding-left: 15px;
+                        border-bottom: 1px solid;
+                        border-bottom-width: 3px;
+                        padding-bottom: 10px;"
+                >
+                    <h5><a href="{{ path('received_message')}}"> - Message reçus </a></h5>
+                    <h5><a href="{{ path('sent_message')}}"> - Messages envoyés </a></h5>
+                </div>
+
+                <table style="width:100%;text-align: justify;">
+                    <tr>
+                        <th style="padding-left: 20px; width: 30%;margin: 10px;">
+
+                            {% if send %}À{% else %} De {% endif %}
+                        </th>
+                        <th>Titre</th>
+
+                    </tr>
+                    {% for message in messages  %}
+                        <tr>
+                            <td style="padding-left: 10px"><a href="{{ path("show_message",{"messageId":message.id}) }}">{{message.fromUser.username}}</a></td>
+                            <td>{{ message.title}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}

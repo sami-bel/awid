@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ include('main/menu.html.twig') }}
+    {# body #}
+
+    <div class="container-fluid splash" id="splash">
+        <div class="container-awid">
+
+            <div class="container-form-awid">
+                <h3> Message </h3>
+                <div class="block-message">
+                    <div> De: {{ message.fromUser.username}} </div>
+                    <div> Titre: {{ message.title}} </div>
+                    <div> {{ message.content}} </div>
+                    <a class="btn-awid btn-awid-size" href="{{ path('add_message',{'toUserId': message.fromUser.id}) }}">
+                        Répondre
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock body %}
