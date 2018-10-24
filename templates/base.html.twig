@@ -25,7 +25,7 @@
 
             {% block stylesheets %}{% endblock %}
         </head>
-    <body>
+    <body >
     {{ include('main/menu.html.twig') }}
     {% block body %}
 
@@ -36,13 +36,13 @@
         <div class="container-fluid" id="base_footer">
             <div class="element">
                 <p>
-                    <a href="#">PRÉSENTATION</a>
+                    <a href="{{ path("presentation") }}">PRÉSENTATION</a>
                     <br />
-                    <a href="#">QUI SOMMES NOUS</a>
+                    <a  href="{{ path('who_we_are')}}">QUI SOMMES NOUS</a>
                     <br />
-                    <a href="#">NOS OBJECTIFS</a>
+                    <a href="{{  path('objective') }}">NOS OBJECTIFS</a>
                     <br />
-                    <a href="#">CGU</a>
+                    <a href="{{ path('cgu') }}">CGU</a>
                 </p>
             </div><!-- .element-->
             <div class="element">

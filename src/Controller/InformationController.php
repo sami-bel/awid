@@ -30,4 +30,14 @@ class InformationController extends AbstractController
         return $this->render('informations/howItWorks.html.twig');
     }
 
+    public function presentation(Request $request)
+    {
+        return $this->render('informations/presentation.html.twig');
+    }
+
+    public function cgu(Request $request)
+    {
+        return $this->render('informations/cgu.html.twig');
+    }
+
 }

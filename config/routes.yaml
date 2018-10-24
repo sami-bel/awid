@@ -71,3 +71,10 @@ objective:
     path: informations/objective
     controller: App\Controller\InformationController::objective
 
+presentation:
+    path: informations/presentation
+    controller: App\Controller\InformationController::presentation
+
+cgu:
+    path: informations/cgu
+    controller: App\Controller\InformationController::cgu
