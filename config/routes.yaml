@@ -63,6 +63,10 @@ who_we_are:
     path: informations/whoarewe
     controller: App\Controller\InformationController::whoAreWe
 
+how_it_works:
+    path: informations/howItWorks
+    controller: App\Controller\InformationController::howItWorks
+
 objective:
     path: informations/objective
     controller: App\Controller\InformationController::objective

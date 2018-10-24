@@ -25,4 +25,9 @@ class InformationController extends AbstractController
         return $this->render('informations/objective.html.twig');
     }
 
+    public function howItWorks(Request $request)
+    {
+        return $this->render('informations/howItWorks.html.twig');
+    }
+
 }
