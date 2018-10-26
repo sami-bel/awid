@@ -15,12 +15,24 @@
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-md-offset-2 col-md-3">
-                        <button class="btn btnjbl vertf" name="button" data-toggle="modal" data-target="#loginModal" id="myBtn">Déposer une annonce</button>
-                    </div><!-- .col-md-3-->
-                    <div class="col-md-offset-1 col-md-3">
-                        <button class="btn btnjbr maronf" name="button" data-toggle="modal" data-target="#loginModal">Voir les annonces</button>
-                    </div><!-- .col-md-3-->
+
+                    {% if app.user %}
+                        <div class="col-md-offset-2 col-md-3">
+                            <button class="btn btnjbl vertf" name="button" id="myBtn">Déposer une annonce</button>
+                        </div><!-- .col-md-3-->
+                        <div class="col-md-offset-1 col-md-3">
+                            <button class="btn btnjbr maronf" name="button">Voir les annonces</button>
+                        </div><!-- .col-md-3-->
+                    {% else %}
+                        <div class="col-md-offset-2 col-md-3">
+                            <button class="btn btnjbl vertf" name="button" data-toggle="modal" data-target="#loginModal" id="myBtn">Déposer une annonce</button>
+                        </div><!-- .col-md-3-->
+                        <div class="col-md-offset-1 col-md-3">
+                            <button class="btn btnjbr maronf" name="button" data-toggle="modal" data-target="#loginModal">Voir les annonces</button>
+                        </div><!-- .col-md-3-->
+
+                    {% endif %}
+
                 </div><!-- .row-->
                 <br />
                 <a href="#jibcolis" class="btn btn-link" style="color: white;">en savoir plus ... </a>

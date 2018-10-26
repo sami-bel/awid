@@ -1,4 +1,9 @@
 <header>
+
+    {% if app.user == null %}
+        {{ include('main/modalLogin.html.twig') }}
+    {% endif %}
+
     <nav class="navbar navbar-default navbar-fixed-top my-menu">
         <div class="container">
             <!--Nav Left-->

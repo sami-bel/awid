@@ -11,6 +11,11 @@
 #    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
 #    prefix:   /login
 
+# -------------- Securité  -------------------------------------------
+
+csrf_token:
+    path: /csrf_token
+    controller: App\Controller\SecurityController::csrfToken
 
 #    ----------------------------------------------------------------------
 index:

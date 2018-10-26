@@ -21,7 +21,8 @@
 
             <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
             <script src="/bootstrap/js/bootstrap.js" ></script>
-            <script src="/bootstrap/js/npm.js" ></script>
+            {#<script src="/bootstrap/js/npm.js" ></script>#}
+
 
             {% block stylesheets %}{% endblock %}
         </head>
@@ -81,6 +82,11 @@
         </div><!-- #base_footer-->
 
     </footer>
+
+    <script src="/js/login.js" ></script>
     </body>
-        {% block javascripts %}{% endblock %}
+
+        {% block javascripts %}
+
+        {% endblock %}
 </html>
