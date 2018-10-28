@@ -1,0 +1,45 @@
+<!--Modal Register-->
+<div class="modal fade" id="registerModal" role="dialog" style="display: none;">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 style="color:red;"><span class="glyphicon glyphicon-lock"></span> Register</h4>
+            </div><!-- .modal-header-->
+            <div class="modal-body">
+
+                {{ form_start(form, {'method': 'post', 'action': path('awid_register'), 'attr': {'class': 'form'}}) }}
+                {#<form class="inner_form" method="post" action="#">#}
+                    {#<div class="form-group" style="border: 10px white;border-radius: 15px;">#}
+                        {#<div class="col-md-6">#}
+                            {#<label for="usrname">Nom</label>#}
+                            {#<input id="nom" type="text" class="form-control" name="nom" placeholder="NOM">#}
+                        {#</div>#}
+                        {#<div class="col-md-6">#}
+                            {#<label for="usrname">Prenom</label>#}
+                            {#<input id="prenom" type="prenom" class="form-control" name="prenom" placeholder="PRENOM">#}
+                        {#</div>#}
+                        {#<label for="usrname">Email</label>#}
+                        {#<input id="email" type="mail" class="form-control" name="email" placeholder="Email">#}
+                        {#<label for="usrname">Telephone</label>#}
+                        {#<input id="tel" type="tel" class="form-control" name="tel" placeholder="Numero de téléphone">#}
+                        {#<label for="usrname">Mot de passe</label>#}
+                        {#<input id="pass" type="password" class="form-control" name="pass" placeholder="Mot de passe">#}
+                        {#<button type="submit" class="btn btn-default btn-success btn-block">S'inscrire</button>#}
+                    {#</div>#}
+                {#</form>#}
+                <div>
+                    <button type="submit"  id="login-button" >inscrire</button>
+                </div>
+                {{ form_end(form) }}
+
+            </div><!-- .modal-body-->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove "></span> Quitter</button>
+                <a href="#" class="btn btn-link">Deja membre ?</a>
+                <a href="#" class="btn btn-link">Mot de passe oublié ? </a>
+            </div><!-- .modal-footer-->
+        </div><!-- .modal-content-->
+    </div><!-- .modal-dialog-->
+</div><!-- .modal-->

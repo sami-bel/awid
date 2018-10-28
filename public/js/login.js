@@ -12,7 +12,17 @@ $("#form_login").submit(function( event ) {
     data: data,
     type : 'POST',
     success : function(data, statut){
-      console.log(data);
+
+        if(typeof data =='object')
+        {
+            if(data.error != "undefined"){
+                $("#error_login").html(data.error);
+            }
+        }
+        else
+        {
+            location.reload();
+        }
     }
   });
 

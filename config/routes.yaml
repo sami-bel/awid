@@ -16,6 +16,18 @@
 csrf_token:
     path: /csrf_token
     controller: App\Controller\SecurityController::csrfToken
+awid_register:
+    path: /register
+    controller: App\Controller\SecurityController::register
+
+fos_user_registration_confirmed:
+   path: /register/confirmed
+   controller: App\Controller\SecurityController::confirmed
+
+fos_user_security_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
 
 #    ----------------------------------------------------------------------
 index:
