@@ -3,51 +3,73 @@
     {{ include('main/menu.html.twig') }}
     {# body #}
 
-    <div class="container-fluid splash" id="splash">
-        <div class="container-awid">
+    <div class="container body">
+        <p></p>
+        <h2 class="titre">{{ adverTitle }} </h2>
+        {% for adver in advertisements %}
+            <div  class="row annonce">
+            <!--premiere box-->
+            <div class="col-md-2 col-sm-2">
+                <img class="img-colis" src="images/passenger.png" alt="passenger_img" >
+            </div>
 
-            <div class="container-form-awid">
-                <h2> {{ adverTitle }} </h2>
-                {% for adver in advertisements %}
-                   <div>
-                        <div class="block-advert">
-                            <div class="block-logo-advert">
-                                <img src="/images/coliLogo.png">
+            <!--seconde box-->
+            <div class="col-md-5 col-sm-5 text_colis">
+                <p>Mode de transport : TEST TYPE </p>
+                <p>Poid : TEST POID </p>
+                <p>
+                    Trajet : Pays, Ville <span class="glyphicon glyphicon-arrow-right"></span> Pays, Ville
+                </p>
+                <br />
+            </div>
+            <div class="col-md-5 col-sm-5 text_colis">
+                <p>Date d'expedition avant : DATE TEST </p>
+                <p>Description : DESCRIPTION TEST </p>
+                <p>Prix : PRIX TEST </p>
+                <br />
+            </div>
+            <!--troisieme box-->
+            <div class="col-md-5 buttons-container">
+                <div class="row">
+                    <!--Bottons-->
+                    <ul class="my-colis-buttons">
+                        <li><a href="#" class="btn btn-success">Modifier</a></li>
+                        <li><button class="btn btn-danger" data-toggle="modal" data-target="#">Supprimer</button></li>
+                        <li>
+                            <form method="post" action="#">
+                                <!--TODO: value # should be dynamically replaced by the item's id-->
+                                <input type="hidden" name="idc" value="#">
+                                <button type="submit" class="btn btn-warning">Détail de l'annonce </button>
+                            </form>
+                        </li>
+                    </ul>
 
-                                {%  if myAdver %}
-                                    <a class="btn-awid btn-awid-size" href="{{ path('update_advertisement',{'id': adver.id}) }}" class="card-button card-button-cta">
-                                        Modifier
-                                    </a>
-                                {% else %}
-                                    <a class="btn-awid btn-awid-size" href="{{ path('add_message',{'toUserId': adver.user.id}) }}" class="card-button card-button-cta">
-                                    Contacter
-                                   </a>
-                                {% endif %}
+                    <div id="confirm_modal_#" class="modal center" role="dialog" style="top:30%" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <p>Voulez vous vraiment supprimer ce colis</p>
 
-
-
-                            </div>
-                            <div class="block-info-advert">
-                                <div> {{ adver.fromCountry }} - {{ adver.toCountry }}</div>
-                                <div> Poid : {{ adver.weight }} Kg</div>
-                                <div> date : {{ adver.date|date("m/d/Y") }}</div>
-                                <div>   <a href="#/" class="btn-awid-url">
-                                        More info
-                                        <span class="flesh-icon">
-                                          <svg fill="#9C948A" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 0h24v24H0z" fill="none"/>
-                                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-                                          </svg>
-                                     </span>
-                                    </a>
+                                    <form method="post" action="#">
+                                        <!--TODO: value # should be dynamically replaced by the item's id-->
+                                        <input type="hidden" name="idc_drop" value="#">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Non</button>
+                                        <button type="submit" class="btn btn-secondary">Oui</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-
-                   </div>
-                {% endfor %}
+                    </div>
+                    <!--/confirmation modal-->
+                </div>
             </div>
         </div>
+        <br />
+        {% endfor %}
     </div>
+
+
+
+
 
 {% endblock body %}

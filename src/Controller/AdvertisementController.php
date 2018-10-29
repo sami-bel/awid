@@ -64,7 +64,6 @@ class AdvertisementController extends AbstractController
 
             $adver->setUser($user);
 
-
             $this->advertisementService->addAdvertisement($adver);
 
             return $this->redirectToRoute('my_advertisements', array('adverType' => $adverType));
@@ -81,6 +80,7 @@ class AdvertisementController extends AbstractController
             [
                 'form'       => $form->createView(),
                 'adverTitle' => $adverTitle,
+                'adverType'  => $adverType
             ]);
     }
 

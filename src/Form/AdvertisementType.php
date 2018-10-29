@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Intl\Intl;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -39,12 +40,7 @@ class AdvertisementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',null, array(
-                'label' => false,
 
-                'attr' =>[
-                    'placeholder'=> 'Titre'
-                ]))
             ->add('transportMode', ChoiceType::class, [
                 'choices' => $this->transportMode,
                 'label' => false,
@@ -87,18 +83,13 @@ class AdvertisementType extends AbstractType
                 'attr' =>[
                     'placeholder'=> 'Titre'
                 ]))
-            ->add('Description',null, array(
+            ->add('Description',TextareaType::class, array(
                 'label' => false,
 
                 'attr' =>[
                     'placeholder'=> 'Description'
                 ]))
-            ->add('price',IntegerType::class, array(
-                'label' => false,
 
-                'attr' =>[
-                    'placeholder'=> 'Prix'
-                ]))
             ->add('save', SubmitType::class, array())
         ;
     }

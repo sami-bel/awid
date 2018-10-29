@@ -23,6 +23,26 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/" lass="btn btnjcm menubtn">Accueil</a></li>
                     <li><a lass="btn btnjcm menubtn" href="{{ path('how_it_works') }}">Comment ça marche</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">annonces
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="page-voyageurs.html">Voyageurs</a></li>
+                            <li><a href="page-colis.html">Colis</a></li>
+                        </ul>
+                    </li>
+                    <!--expediteur-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter une annonce
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('add_advertisement',{'adverType' : 2}) }}">Voyageur</a></li>
+                            <li><a href="{{ path('add_advertisement',{'adverType' : 1}) }}">Colis</a></li>
+                        </ul>
+                    </li>
+
                     <li><a name="button" data-toggle="modal" data-target="#loginModal">Se connecter</a></li>
                     <li><a name="button" data-toggle="modal" data-target="#registerModal">S'inscrire</a></li>
                 </ul>
