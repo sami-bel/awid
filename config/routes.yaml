@@ -36,23 +36,23 @@ index:
 
 # -------------------- advertisement routes ----------------------------- #
 add_advertisement:
-    path: advertisement/add/{adverType}
+    path: packet/add/{adverType}
     controller: App\Controller\AdvertisementController::addAdvertisement
 
 delete_advertisement:
-    path: advertisement/delete/{id}
+    path: packet/delete/{id}
     controller: App\Controller\AdvertisementController::deleteAdvertisement
 
 update_advertisement:
-    path: advertisement/update/{id}
+    path: packet/update/{id}
     controller: App\Controller\AdvertisementController::updateAdvertisement
 
 my_advertisements:
-    path: advertisement/mine/{adverType}
+    path: packet/mine/{adverType}
     controller: App\Controller\AdvertisementController::getMyAdvertisements
 
 all_advertisements:
-    path: advertisement/all/{adverType}
+    path: packet/all/{adverType}
     controller: App\Controller\AdvertisementController::getAllAdvertisement
 
 
@@ -95,3 +95,9 @@ presentation:
 cgu:
     path: informations/cgu
     controller: App\Controller\InformationController::cgu
+
+# --------------------- Dashboard  --------------------------------- #
+
+dashboard:
+    path: dashboard/index
+    controller: App\Controller\DashboardController::index

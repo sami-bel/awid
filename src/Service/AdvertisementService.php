@@ -4,6 +4,7 @@ namespace App\Service;
 use App\Entity\Advertisement;
 use App\Interfaces\IAdvertisementService;
 use App\Repository\AdvertisementRepository;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * Created by Sami Belbacha
@@ -13,15 +14,22 @@ class AdvertisementService implements IAdvertisementService
 
     private $advertisementRepository ;
 
+    /**
+     * @var Security securityService
+     */
+    private $securityService;
+
 
     /**
      * AdvertisementService constructor.
      *
-     * @param \App\Repository\AdvertisementRepository $advertisementRepository
+     * @param \App\Repository\AdvertisementRepository   $advertisementRepository
+     * @param \Symfony\Component\Security\Core\Security $securityService
      */
-    public function __construct( AdvertisementRepository $advertisementRepository )
+    public function __construct( AdvertisementRepository $advertisementRepository, Security $securityService )
     {
         $this->advertisementRepository = $advertisementRepository ;
+        $this->securityService         = $securityService;
     }
 
     public function findAdvertisement( int $id) : Advertisement
@@ -39,12 +47,16 @@ class AdvertisementService implements IAdvertisementService
         return $this->advertisementRepository->updateAdvertisement($adver);
     }
 
-    public function deleteAdvertisement( int $id)
+    public function deleteAdvertisement( int $id) : bool
     {
         $adver = $this->advertisementRepository->find($id);
 
+        if ($this->isMyAdver($adver) == false){
+
+            return false;
+        }
         if ($adver == null) {
-            // TODO:
+            return false;
         }
         return $this->advertisementRepository->deleteAdvertisement($adver);
     }
@@ -59,5 +71,16 @@ class AdvertisementService implements IAdvertisementService
     {
 
         return $this->advertisementRepository->findAllAdvertisements($adverType);
+    }
+
+    public function isMyAdver(Advertisement $adver): bool
+    {
+        $user = $this->securityService->getToken()->getUser();
+
+        if($adver->getUser()->getId() != $user->getId()){
+
+            return false;
+        }
+        return true;
     }
 }

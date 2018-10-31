@@ -14,7 +14,7 @@ interface IAdvertisementService
 
     public function updateAdvertisement( Advertisement $adver) : Advertisement;
 
-    public function deleteAdvertisement( int $id);
+    public function deleteAdvertisement( int $id): bool ;
 
     public function getMyAdvertisements( int $userId,int $adverType): array;
 

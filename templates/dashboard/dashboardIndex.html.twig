@@ -1,0 +1,117 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ include('main/menu.html.twig') }}
+    {# body #}
+    <div class="container body">
+        <div class="row">
+            <div class="col-md-6 h_left">
+                <h3 class="t_bord_txt">Tableau de bord</h3>
+            </div>
+        </div>
+        <!--menu du bas-->
+        <div id="t_bord">
+            <br />
+            <!--ligne 1-->
+            <div class="row">
+                <!--messagerie-->
+                <a class="col-md-6 col-sm-12" href="{{ path('received_message') }}" alt="messagerie" >
+                    <div class="a ab x3">
+                        <h4>Messagerie</h4>
+                        <span class="badge"></span> <br><br>
+                        <img id="msg_ic" class="ab" width="100px" height="100px" src="/images/msg.png" alt="">
+                    </div>
+                </a>
+                <div class="col-md-6 col-sm-12">
+                    <div class="row x2">
+                        <!--mes colis-->
+                        <a href="page-my_colis.html" class="b">
+                            <div class="col-md-6 col-sm-6 col-xs-6 b x2">
+                                <h4>Mes colis</h4>
+                                <img id="col_ic" width="80px" height="80px" src="/images/colis.png" alt="">
+                            </div>
+                        </a>
+                        <!--mes trajet-->
+                        <a href="page-my_trajet.html" class="c">
+                            <div class="col-md-6 col-sm-6 col-xs-6 c x2">
+                                <h4>Mes trajets</h4>
+                                <img id="trajet_ic" width="80px" height="80px" src="/images/trajet.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <!--2eme ligne dans la partie de gauche-->
+                    <div class="row x1">
+                        <!--mon profil-->
+                        <a href="page-edit_profil.html">
+                            <div class="d col-md-6 col-sm-6 col-xs-6 x1">
+                                <h4 class="edit">Editer mon profile</h4><br/>
+                                <img id="edit_ic" width="70px" height="70px" src="/images/edit.png" alt="">
+                            </div>
+                        </a>
+                        <!--deconnexion-->
+                        <a href="#">
+                            <div class="col-md-6 col-sm-6 col-xs-6 e x1">
+                                <h4 class="dec">Déconnexion</h4>
+                                <img id="dec_ic" style="position:middle;" width="80px" height="80px" src="/images/dec.png" alt="">
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock body %}
+
+  {% block javascripts %}
+     <script type="text/javascript">
+      $(function () {
+        $(".ab").mouseover(function () {
+          $("#msg_ic").show();
+        });
+
+        $(".ab").mouseout(function () {
+          $("#msg_ic").hide();
+        });
+
+        $(".b").mouseover(function () {
+          $("#col_ic").show();
+        });
+
+        $(".b").mouseout(function () {
+          $("#col_ic").hide();
+        });
+
+        $(".c").mouseover(function () {
+          $("#trajet_ic").show();
+        });
+
+        $(".c").mouseout(function () {
+          $("#trajet_ic").hide();
+        });
+
+        $(".d").mouseover(function () {
+          $(".edit").hide();
+          $("#edit_ic").show();
+        });
+
+        $(".d").mouseout(function () {
+          $(".edit").show();
+          $("#edit_ic").hide();
+        });
+
+        $(".e").mouseover(function () {
+          $(".dec").hide();
+          $("#dec_ic").show();
+        });
+
+        $(".e").mouseout(function () {
+          $(".dec").show();
+          $("#dec_ic").hide();
+        });
+
+      });
+      </script>
+
+
+{% endblock %}

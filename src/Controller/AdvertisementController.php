@@ -14,6 +14,7 @@ use App\Form\AdvertisementType;
 use App\Interfaces\IAdvertisementService;
 use App\Service\AdvertisementService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Intl\Intl;
@@ -117,11 +118,10 @@ class AdvertisementController extends AbstractController
         return $this->render('advertisement/advertisementForm.html.twig', ['form' => $form->createView(), 'adverTitle' => $adverTitle,]);
     }
 
-    public function deleteAdvertisement(Request $request, string $id)
+    public function deleteAdvertisement(Request $request, int $id)
     {
-        $this->advertisementService->deleteAdvertisement($id);
-        return new Response('ok');
-
+        $response = $this->advertisementService->deleteAdvertisement($id);
+        return new JsonResponse(["status"=>$response]);
     }
 
     public function getMyAdvertisements(Request $request, int $adverType)

@@ -6,6 +6,7 @@ use App\Entity\Advertisement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 /**
  * @method Advertisement|null find($id, $lockMode = null, $lockVersion = null)
@@ -43,8 +44,14 @@ class AdvertisementRepository extends ServiceEntityRepository
 
     public function deleteAdvertisement(Advertisement $adver)
     {
-        $this->em->remove($adver);
-        $this->em->flush();
+        try {
+            $this->em->remove($adver);
+            $this->em->flush();
+        }catch (Exception $ex){
+            return false;
+        }
+
+        return true;
     }
 
     public function findAdvertisement( int $id): Advertisement

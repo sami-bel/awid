@@ -1,69 +1,21 @@
-////////////////////////////////////
-// NAVIGATION SHOW/HIDE
+// --------- function -------
 
-$("nav ul").hide();
+// ---------- EVENT -------------
+$(document).on("click", "#delete-adver", function( event ) {
 
-$(".nav-toggle").click( function() {
-  $("nav .menu-nav").slideToggle("medium");
-});
+  var url  = $(this).attr("data-url");
 
-$(".menu-nav-li a, .brand a").click( function() {
-  $("nav ul").hide();
-});
+  console.log(url);
 
-////////////////////////////////////
-// SMOOTH SCROLLING WITH NAV HEIGHT OFFSET
-
-$(function() {
-  var navHeight = $("nav").outerHeight();
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top - navHeight
-        }, 1000);
-        return false;
-      }
+  $.ajax({
+    url : url,
+    data:"",
+    type : 'POST',
+    success : function(data, statut){
+      console.log(data);
     }
   });
+
+  event.preventDefault();
+  return false
 });
-
-////////////////////////////////////
-// NAVIGATION STICKY
-
-var viewHeight = $(window).height();
-var navigation = $('nav');
-
-$(window).scroll( function() {
-  if ( $(window).scrollTop() > (viewHeight - 175) ) { //edit for nav height
-    navigation.addClass('sticky');
-  } else {
-    navigation.removeClass('sticky');
-  }
-});
-
-////////////////////////////////////////////////
-// MAKE THE SPLASH CONTAINER VERTICALLY CENTERED
-
-function centerSplash() {
-  var navHeight = $("nav").outerHeight();
-  var splashHeight = $(".splash .container").height();
-  var remainingHeight = $(window).height() - splashHeight - navHeight;
-  $(".splash .container").css({"padding-top" : remainingHeight/2, "padding-bottom" : remainingHeight/2});
-}
-
-$( document ).ready( function() {
-  centerSplash();
-});
-
-$( window ).resize( function() {
-  centerSplash();
-});
-
-//---------------------- AWID --------------------------------
-
-$(document).on('click','.profile-btn',function (){
-  $('.menu-profile').toggle(400);
-} );
