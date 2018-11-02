@@ -1,0 +1,24 @@
+
+<div class="table-responsive">
+    <table class="table">
+        {% for message in messages %}
+            <tr class="unread">
+                <td>
+                    <div class="check-star">
+                        <div class="checkbox-fade fade-in-primary checkbox">
+                            <label>
+                                <input type="checkbox" value="">
+                                <span class="cr"><i class="cr-icon icofont icofont-verification-check txt-primary"></i></span>
+                            </label>
+                        </div>
+                        <i class="icofont icofont-star text-warning"></i>
+                    </div>
+                </td>
+                <td><a href="page-mail_read.html" class="email-name waves-effect">{{ message.fromUser.username }}</a></td>
+                <td><a href="page-mail_read.html" class="email-name waves-effect">{{ message.content }}</a></td>
+                <td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>
+                <td class="email-time">08:01 AM</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

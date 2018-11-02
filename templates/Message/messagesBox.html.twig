@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ include('main/menu.html.twig') }}
+    {# body #}
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <!-- [ breadcrumb ] end -->
+                <div class="pcoded-inner-content">
+                    <!-- Main-body start -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+
+                            <!-- Page-body start -->
+                            <div class="page-body">
+                                <div class="card">
+                                    <!-- Email-card start -->
+                                    <div class="card-block email-card">
+                                        <div class="row">
+                                            <!-- Left-side section start -->
+                                            <div class="col-sm-12 col-md-3">
+                                                <div class="user-body">
+                                                    <div class="p-20 text-center">
+                                                        <a href="page-mail_compose.html" class="btn btn-danger waves-effect">Composer</a>
+                                                    </div>
+                                                    <ul class="page-list nav nav-tabs flex-column" id="pills-tab" role="tablist">
+                                                        <li class="nav-item mail-section" id="box-received" data-url="{{ path('received_message') }}">
+                                                            <a class="nav-link waves-effect d-block active" data-toggle="pill" href="" role="tab">
+                                                                <i class="icofont icofont-inbox"></i> Boite De Reception
+                                                                <span class="label label-primary float-right">{{ messages|length }}</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item mail-section">
+                                                            <a class="nav-link waves-effect d-block" data-toggle="pill" href="#e-sent" role="tab">
+                                                                <i class="icofont icofont-paper-plane"></i> Mail Envoye
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item mail-section">
+                                                            <a class="nav-link waves-effect d-block" data-toggle="pill" href="#e-trash" role="tab">
+                                                                <i class="icofont icofont-ui-delete"></i> Corbeille
+                                                                <span class="label label-info float-right">30</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- Left-side section end -->
+                                            <!-- Right-side section start -->
+                                            <div class="col-sm-12 col-md-9">
+                                                <div class="tab-content" id="pills-tabContent">
+                                                    <div class="tab-pane show active" id="e-inbox" role="tabpanel">
+
+                                                        <div class="mail-body">
+                                                            <div class="mail-body-header">
+                                                                <button type="button" class="btn btn-primary btn-xs waves-effect waves-light">
+                                                                    <i class="icofont icofont-exclamation-circle"></i>
+                                                                </button>
+                                                                <button type="button" class="btn btn-success btn-xs waves-effect waves-light">
+                                                                    <i class="icofont icofont-inbox"></i>
+                                                                </button>
+                                                                <button type="button" class="btn btn-danger btn-xs waves-effect waves-light">
+                                                                    <i class="icofont icofont-ui-delete"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="mail-body-content">
+                                                                {{ include('Message/messagesList.html.twig') }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Right-side section end -->
+                                        </div>
+                                    </div>
+                                    <!-- Email-card end -->
+                                </div>
+                            </div>
+                            <!-- Page-body start -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}

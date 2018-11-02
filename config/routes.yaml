@@ -62,6 +62,10 @@ add_message:
     path: message/add/{toUserId}
     controller: App\Controller\MessageController::addMessage
 
+messages_box:
+    path: message/box
+    controller: App\Controller\MessageController::getMessagesBox
+
 received_message:
     path: message/received
     controller: App\Controller\MessageController::getReceivedMessage
