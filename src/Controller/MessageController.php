@@ -58,29 +58,22 @@ class MessageController extends AbstractController
         $toUser  = $this->userService->findUser($toUserId);
         $user    = $this->securityService->getToken()->getUser();
 
+        $content = $request->get('messageContent');
 
         if ($toUser == null)
         {
             //ToDo :
         }
 
-        $form    = $this->createForm(MessageType::class, $message);
+        $message->setCreateAt(new \DateTime());
+        $message->setFromUser($user);
+        $message->setToUser($toUser);
+        $message->setContent($content);
 
-        $form->handleRequest($request);
+        $this->MessageService->addMessage($message);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        return $this->redirectToRoute('messages_box');
 
-            $message->setCreateAt(new \DateTime());
-            $message->setFromUser($user);
-            $message->setToUser($toUser);
-
-
-            $this->MessageService->addMessage($message);
-
-            return $this->redirectToRoute('all_advertisements', array('adverType' => 1));
-        }
-
-        return $this->render('Message/messageForm.html.twig', ['form' => $form->createView()]);
     }
 
     public function getMessagesBox(Request $request)
@@ -96,7 +89,7 @@ class MessageController extends AbstractController
     {
         $user      = $this->securityService->getToken()->getUser();
         $messages  = $this->MessageService->getReceivedMessage($user->getId());
-        return $this->render('Message/messagesList.html.twig',["messages" => $messages, "send" => false]);
+        return $this->render('Message/messagesList.html.twig',["messages" => $messages ,"send" =>false]);
 
     }
 
@@ -105,7 +98,7 @@ class MessageController extends AbstractController
     {
         $user      = $this->securityService->getToken()->getUser();
         $messages  = $this->MessageService->getSentMessages($user->getId());
-        return $this->render('Message/messageList.html.twig',["messages" => $messages, "send" => true]);
+        return $this->render('Message/messagesList.html.twig',["messages" => $messages, "send" =>true]);
 
     }
 
@@ -113,9 +106,18 @@ class MessageController extends AbstractController
     {
         $user    = $this->securityService->getToken()->getUser();
         $message = $this->MessageService->findMessage($messageId);
+        $replay  = true;
 
-        return $this->render('Message/showMessage.html.twig',['message' => $message]);
 
+
+        if ($message->getFromUser()->getId() == $user->getId()){
+            $replay = false;
+            $username = $message->getToUser()->getUsername();
+        }else{
+            $username = $message->getFromUser()->getUsername();
+        }
+
+        return $this->render('Message/showMessage.html.twig',['message' => $message, "replay" => $replay, "username" => $username]);
 
     }
 

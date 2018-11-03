@@ -73,4 +73,28 @@ class MessageService implements IMessageService
         $criteria['archived'] = false;
         return $this->MessageRepository->findMessagesByCriteria($criteria);
     }
+
+//$messages = $this->MessageRepository->findMessagesByCriteria($criteria);
+//
+//    // grouper les messages selon from user
+//$messageFromUsers = [];
+//$messagesOrdered   = [];
+//$orderUser        = [];
+//$i = 1;
+//foreach ($messages as $message){
+//
+//if (! array_key_exists($message->getFromUser()->getId(), $orderUser)){
+//$orderUser[$message->getFromUser()->getId()] = $i ;
+//$i++;
+//}
+//$messageFromUsers[$message->getFromUser()->getId()][]= $message;
+//
+//
+//}
+//
+//foreach ( $messageFromUsers as $key => $value){
+//    $messagesOrdered[$orderUser[$key]] = $value;
+//}
+
+
 }

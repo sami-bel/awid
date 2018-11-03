@@ -2,7 +2,7 @@
 <div class="table-responsive">
     <table class="table">
         {% for message in messages %}
-            <tr class="unread">
+            <tr class="unread" id="show-message" data-url="{{ path("show_message",{"messageId": message.id}) }}">
                 <td>
                     <div class="check-star">
                         <div class="checkbox-fade fade-in-primary checkbox">
@@ -14,10 +14,15 @@
                         <i class="icofont icofont-star text-warning"></i>
                     </div>
                 </td>
-                <td><a href="page-mail_read.html" class="email-name waves-effect">{{ message.fromUser.username }}</a></td>
-                <td><a href="page-mail_read.html" class="email-name waves-effect">{{ message.content }}</a></td>
-                <td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>
-                <td class="email-time">08:01 AM</td>
+                {% if send %}
+                    <td><a href="#" class="email-name waves-effect">{{ message.ToUser.username }}</a></td>
+                {% else %}
+                    <td><a href="#" class="email-name waves-effect">{{ message.fromUser.username }}</a></td>
+                {% endif %}
+
+                <td><a href="#" class="email-name waves-effect">{{ message.content }}</a></td>
+                {#<td class="email-attch"><a href="#"><i class="icofont icofont-clip"></i></a></td>#}
+                <td class="email-time">{{ message.createAt | date("m/d/Y") }}</td>
             </tr>
         {% endfor %}
     </table>
