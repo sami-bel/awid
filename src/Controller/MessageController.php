@@ -52,8 +52,12 @@ class MessageController extends AbstractController
         $this->securityService = $securityService;
     }
 
-    public function addMessage(Request $request, int $toUserId)
+    public function addMessage(Request $request, \Swift_Mailer $mailer, int $toUserId)
     {
+
+
+
+
         $message = new Message();
         $toUser  = $this->userService->findUser($toUserId);
         $user    = $this->securityService->getToken()->getUser();
@@ -71,6 +75,22 @@ class MessageController extends AbstractController
         $message->setContent($content);
 
         $this->MessageService->addMessage($message);
+
+
+        // envoyer un mail à l utilisateur
+
+        $messageMailer = (new \Swift_Message('Message JibColis'))
+            ->setFrom('send@example.com')
+            ->setTo($toUser->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'Message/email.html.twig',
+                    array('name' => $user->getUsername(), 'content' => $message->getContent())
+                ),
+                'text/html'
+            );
+
+        $mailer->send($messageMailer);
 
         return $this->redirectToRoute('messages_box');
 

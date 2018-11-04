@@ -34,6 +34,10 @@ index:
     path: /
     controller: App\Controller\MainController::index
 
+hello:
+   path: /hello
+   controller: App\Controller\MainController::hello
+
 # -------------------- advertisement routes ----------------------------- #
 add_advertisement:
     path: packet/add/{adverType}
