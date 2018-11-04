@@ -33,26 +33,30 @@
                         </ul>
                     </li>
                     <!--expediteur-->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter une annonce
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ path('add_advertisement',{'adverType' : 2}) }}">Voyageur</a></li>
-                            <li><a href="{{ path('add_advertisement',{'adverType' : 1}) }}">Colis</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="{{ path('dashboard') }}">
-                            <img src="/images/profile.png" class="profil_photo" alt="photo de profile" style="margin-top: -8px; border-radius: 5px; height:25px; width:25px;">
-                            <span>John Doe</span>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li><a name="button" data-toggle="modal" data-target="#loginModal">Se connecter</a></li>
-                    <li><a name="button" data-toggle="modal" data-target="#registerModal">S'inscrire</a></li>
+                    {% if app.user%}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter une annonce
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('add_advertisement',{'adverType' : 2}) }}">Voyageur</a></li>
+                                <li><a href="{{ path('add_advertisement',{'adverType' : 1}) }}">Colis</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                    {% if app.user%}
+                        <li>
+                            <a href="{{ path('dashboard') }}">
+                                <img src="/images/profile.png" class="profil_photo" alt="photo de profile" style="margin-top: -8px; border-radius: 5px; height:25px; width:25px;">
+                                <span>John Doe</span>
+                                <span class="caret"></span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if app.user is null%}
+                        <li><a name="button" data-toggle="modal" data-target="#loginModal">Se connecter</a></li>
+                        <li><a name="button" data-toggle="modal" data-target="#registerModal">S'inscrire</a></li>
+                    {% endif %}
                 </ul>
             </div><!-- .navbar-right-->
         </div><!-- .container-->

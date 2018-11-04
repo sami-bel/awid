@@ -24,14 +24,14 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="row x2">
                         <!--mes colis-->
-                        <a href="page-my_colis.html" class="b">
+                        <a href="{{ path('my_advertisements', {'adverType':2}) }}" class="b">
                             <div class="col-md-6 col-sm-6 col-xs-6 b x2">
                                 <h4>Mes colis</h4>
                                 <img id="col_ic" width="80px" height="80px" src="/images/colis.png" alt="">
                             </div>
                         </a>
                         <!--mes trajet-->
-                        <a href="page-my_trajet.html" class="c">
+                        <a href="{{ path('my_advertisements', {'adverType':1}) }}" class="c">
                             <div class="col-md-6 col-sm-6 col-xs-6 c x2">
                                 <h4>Mes trajets</h4>
                                 <img id="trajet_ic" width="80px" height="80px" src="/images/trajet.png" alt="">
@@ -48,7 +48,7 @@
                             </div>
                         </a>
                         <!--deconnexion-->
-                        <a href="#">
+                        <a href="/logout">
                             <div class="col-md-6 col-sm-6 col-xs-6 e x1">
                                 <h4 class="dec">Déconnexion</h4>
                                 <img id="dec_ic" style="position:middle;" width="80px" height="80px" src="/images/dec.png" alt="">
