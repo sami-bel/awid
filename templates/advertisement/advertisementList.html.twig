@@ -15,19 +15,13 @@
 
                  <!--seconde box-->
                 <div class="col-md-5 col-sm-5 text_colis">
-                    <p>Mode de transport : TEST TYPE </p>
-                    <p>Poid : TEST POID </p>
-                    <p>
-                        Trajet : Pays, Ville <span class="glyphicon glyphicon-arrow-right"></span> Pays, Ville
-                    </p>
+                    <p>Poid : {{ adver.weight }} </p>
+                    <p>Ville de départ : {{ adver.fromCity}} </p>
+                    <p>Ville arrivéé : {{ adver.toCity }} </p>
+                    <p>Date d'expedition : {{ adver.date | date("m/d/Y") }} </p>
                     <br />
                 </div>
-                <div class="col-md-5 col-sm-5 text_colis">
-                    <p>Date d'expedition avant : DATE TEST </p>
-                    <p>Description : DESCRIPTION TEST </p>
-                    <p>Prix : PRIX TEST </p>
-                    <br />
-                </div>
+
                <!--troisieme box-->
                 <div class="col-md-5 buttons-container">
                 <div class="row">
@@ -35,7 +29,7 @@
                     <ul class="my-colis-buttons">
                         {% if myAdver %}
                             <li><a href="#" class="btn btn-success">Modifier</a></li>
-                            <li><button class="btn btn-danger" data-toggle="modal" data-target="#confirm_modal">Supprimer</button></li>
+                            <li><button class="btn btn-danger" data-toggle="modal" data-target="#confirm_modal_{{ adver.id  }}">Supprimer</button></li>
                         {% endif %}
                         <li>
                             <form method="post" action="#">
@@ -46,14 +40,14 @@
                         </li>
                     </ul>
                     {% if myAdver %}
-                        <div id="confirm_modal" class="modal center" role="dialog" style="top:30%" >
+                        <div id="confirm_modal_{{ adver.id  }}" class="modal center" role="dialog" style="top:30%" >
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-body">
                                         <p>Voulez vous vraiment supprimer ce colis</p>
 
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Non</button>
-                                        <button type="submit" id="delete-adver" data-url="{{ path("delete_advertisement",{"id": adver.id}) }}" class="btn btn-secondary">Oui</button>
+                                        <button type="submit" id="delete-adver" data-url="{{ path("delete_advertisement",{"id": adver.id}) }}" class="btn btn-secondary" data-dismiss="modal">Oui</button>
 
                                     </div>
                                 </div>

@@ -47,9 +47,8 @@
                     {% if app.user%}
                         <li>
                             <a href="{{ path('dashboard') }}">
-                                <img src="/images/profile.png" class="profil_photo" alt="photo de profile" style="margin-top: -8px; border-radius: 5px; height:25px; width:25px;">
-                                <span>John Doe</span>
-                                <span class="caret"></span>
+                                <img src="/images/profile.png" class="profil_photo" alt="photo de profile">
+                                <span>{{ app.user.username }}</span>
                             </a>
                         </li>
                     {% endif %}

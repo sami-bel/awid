@@ -48,6 +48,16 @@ class RegistrationType extends AbstractType
 
                 )
             )
+            ->add('tel', null, array(
+                    'label' => false,
+                    'translation_domain' => 'FOSUserBundle',
+                    'attr' =>[
+                        'placeholder'=>'Numéro de téléphone'
+                    ]
+
+                )
+            )
+
             ->add('username', null, array(
                 'label' => false,
                 'translation_domain' => 'FOSUserBundle',
