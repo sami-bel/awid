@@ -5,6 +5,9 @@ use App\Entity\Message;
 
 use App\Interfaces\IMessageService;
 use App\Repository\MessageRepository;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\Security\Core\Security;
+use Twig\Template;
 
 /**
  * Created by Sami Belbacha
@@ -14,15 +17,27 @@ class MessageService implements IMessageService
 
     private $MessageRepository ;
 
+    private $userService ;
+    private $securityService ;
+    private $mailer ;
+    private $twigEngine ;
 
     /**
      * MessageService constructor.
      *
      * @param \App\Repository\MessageRepository $MessageRepository
+     * @param UserService $userService
+     * @param Security $securityService
+     * @param \Swift_Mailer $mailer
+     * @param EngineInterface $twigEngine
      */
-    public function __construct( MessageRepository $MessageRepository )
+    public function __construct( MessageRepository $MessageRepository, UserService $userService , Security $securityService,\Swift_Mailer $mailer, EngineInterface $twigEngine)
     {
         $this->MessageRepository = $MessageRepository ;
+        $this->userService       = $userService;
+        $this->securityService   = $securityService;
+        $this->mailer            = $mailer;
+        $this->twigEngine          = $twigEngine;
     }
 
     public function findMessage( int $id) : Message
@@ -35,6 +50,40 @@ class MessageService implements IMessageService
         return $this->MessageRepository->addMessage($message);
     }
 
+    public function sendMessage($userId, string $content){
+        $message = new Message();
+        $toUser  = $this->userService->findUser($userId);
+        $user    = $this->securityService->getToken()->getUser();
+
+
+        if ($toUser == null)
+        {
+            //ToDo :
+        }
+
+        $message->setCreateAt(new \DateTime());
+        $message->setFromUser($user);
+        $message->setToUser($toUser);
+        $message->setContent($content);
+
+        $this->addMessage($message);
+
+
+        // envoyer un mail à l utilisateur
+
+        $messageMailer = (new \Swift_Message('Message JibColis'))
+            ->setFrom('send@example.com')
+            ->setTo($toUser->getEmail())
+            ->setBody(
+                $this->twigEngine->render(
+                    'Message/email.html.twig',
+                    array('name' => $user->getUsername(), 'content' => $message->getContent())
+                ),
+                'text/html'
+            );
+
+        $this->mailer->send($messageMailer);
+    }
     public function deleteMessage( int $id)
     {
         $message = $this->MessageRepository->find($id);

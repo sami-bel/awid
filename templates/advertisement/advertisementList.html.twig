@@ -32,7 +32,7 @@
                             <li><button class="btn btn-danger" data-toggle="modal" data-target="#confirm_modal_{{ adver.id  }}">Supprimer</button></li>
                         {% endif %}
                         <li>
-                            <form method="post" action="#">
+                            <form method="post" action="{{ path("show_advertisements",{"id":adver.id}) }}">
                                 <!--TODO: value # should be dynamically replaced by the item's id-->
                                 <input type="hidden" name="idc" value="#">
                                 <button type="submit" class="btn btn-warning">Détail de l'annonce </button>

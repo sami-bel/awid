@@ -15,6 +15,7 @@ interface IMessageService
     public function deleteMessage( int $id);
 
     public function seeMessage( int $id);
+    public function sendMessage(int $id , string $content);
 
     public function getSentMessages(int $usrId): array;
 

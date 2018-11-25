@@ -99,7 +99,7 @@ class Advertisement
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Description;
+    private $description;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -325,18 +325,18 @@ class Advertisement
      */
     public function getDescription()
     {
-        return $this->Description;
+        return $this->description;
     }
 
 
     /**
-     * @param mixed $Description
+     * @param mixed $description
      *
      * @return Advertisement
      */
-    public function setDescription($Description)
+    public function setDescription($description)
     {
-        $this->Description = $Description;
+        $this->Description = $description;
 
         return $this;
     }

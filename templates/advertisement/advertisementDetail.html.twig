@@ -1,0 +1,111 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/traj-desc.css">
+{% endblock %}
+{% block body %}
+    {{ include('main/menu.html.twig') }}
+    {# body #}
+    <div class="body container">
+        <div class="wrap-contact100">
+            <div class="contact100-form validate-form">
+                    <span class="contact100-form-title" style="font-size: 20px;">
+                        Envoyer un message a {{adver.user.username  }}
+                    </span>
+                <label class="label-input100" for="message">Message *</label>
+                <div class="wrap-input100 validate-input" data-validate = "Message is required">
+                    <textarea id="message-content" class="input100" name="message" placeholder="Ecrivez votre messages..."></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="form-checkbox col-sm-12" style="color: black;">
+                        <input type="checkbox" name="condition" value="condition" required> <strong>OUI</strong> j'ai lu et j'accepte <a href="#">Les condition general d'utilisation</a><br>
+                    </span>
+
+                <div class="container-contact100-form-btn">
+
+                    <button class="contact100-form-btn" id="send-message-from-detail" data-url="{{ path('send_message_from_detail',{'toUserId':adver.user.id}) }}">
+                        Envoyer Le Message
+                    </button>
+                </div>
+
+                <span class="form-checkbox col-sm-12">
+                        <p><stong>*</stong> Pensez a verifier votre boite email et la messagerie JibColis</p>
+                    </span>
+            </div>
+
+            <div class="contact100-more flex-col-c-m" style="">
+                <div class="size1 p-b-47">
+
+                    <div class="size2">
+                            <span class="txt1 p-b-20">
+                                Voyageur
+                            </span>
+
+                        <span class="txt3">
+                              {{adver.user.username  }}
+                            </span>
+                    </div>
+                </div>
+
+                <div class="size1 p-b-47">
+
+
+
+                    <div class="size2">
+                            <span class="txt1 p-b-20">
+                                Voyage le
+                            </span>
+
+                        <span class="txt3">
+                                {{adver.date | date("m/d/Y")  }}
+                            </span>
+                    </div>
+                </div>
+
+                <div class="size1 p-b-47">
+
+
+                    <div class="size2">
+                            <span class="txt1 p-b-20">
+                                Depart
+                            </span>
+
+                        <span class="txt3">
+                                {{adver.FromCity }}
+                            </span>
+                    </div>
+                </div>
+
+                <div class="size1 p-b-47">
+
+
+                    <div class="size2">
+                            <span class="txt1 p-b-20">
+                                Arriver
+                            </span>
+
+                        <span class="txt3">
+                                {{adver.ToCity }}
+                            </span>
+                    </div>
+                </div>
+
+                <div class="size1 p-b-47">
+
+
+                    <div class="size2">
+                            <span class="txt1 p-b-20">
+                                Description
+                            </span>
+
+                        <span class="txt3">
+                                <p class="traj-desc">{{adver.description }}</p>
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}

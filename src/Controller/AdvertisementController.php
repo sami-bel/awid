@@ -88,6 +88,9 @@ class AdvertisementController extends AbstractController
     public function showAdvertisement(Request $request, string $id){
 
         $adver = $this->advertisementService->findAdvertisement($id);
+        return $this->render('advertisement/advertisementDetail.html.twig',['adver' =>$adver]);
+
+
     }
 
     public function updateAdvertisement(Request $request, string $id)

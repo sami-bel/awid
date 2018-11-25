@@ -59,12 +59,19 @@ all_advertisements:
     path: packet/all/{adverType}
     controller: App\Controller\AdvertisementController::getAllAdvertisement
 
+show_advertisements:
+    path: packet/show/{id}
+    controller: App\Controller\AdvertisementController::showAdvertisement
 
 #------------------------ Message Routes ----------------------------------- #
 
 add_message:
     path: message/add/{toUserId}
     controller: App\Controller\MessageController::addMessage
+
+send_message_from_detail:
+    path : message/send/{toUserId}
+    controller : App\Controller\MessageController::sendMessageFromDetail
 
 messages_box:
     path: message/box
@@ -81,6 +88,8 @@ sent_message:
 show_message:
     path: message/show/{messageId}
     controller: App\Controller\MessageController::showMessage
+
+
 
 #-------------------------------Information generale -------------- #
 
