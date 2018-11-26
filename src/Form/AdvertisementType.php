@@ -83,7 +83,7 @@ class AdvertisementType extends AbstractType
                 'attr' =>[
                     'placeholder'=> 'Titre'
                 ]))
-            ->add('Description',TextareaType::class, array(
+            ->add('description',TextareaType::class, array(
                 'label' => false,
 
                 'attr' =>[

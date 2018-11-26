@@ -336,7 +336,7 @@ class Advertisement
      */
     public function setDescription($description)
     {
-        $this->Description = $description;
+        $this->description = $description;
 
         return $this;
     }
