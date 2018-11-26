@@ -10,11 +10,16 @@
             <div  class="row annonce">
             <!--premiere box-->
                 <div class="col-md-2 col-sm-2">
-                    <img class="img-colis" src="images/passenger.png" alt="passenger_img" >
+                    {% if isSend %}
+                         <img class="img-colis" src="/images/colis.png" alt="passenger_img" >
+                    {% else %}
+                        <img class="img-colis" src="/images/passenger.png" alt="passenger_img" >
+                    {% endif %}
+
                 </div>
 
                  <!--seconde box-->
-                <div class="col-md-5 col-sm-5 text_colis">
+                <div class="col-md-5 col-sm-5 text_colis" style="color: black">
                     <p>Poid : {{ adver.weight }} </p>
                     <p>Ville de départ : {{ adver.fromCity}} </p>
                     <p>Ville arrivéé : {{ adver.toCity }} </p>

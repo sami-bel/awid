@@ -14,9 +14,12 @@ use App\Form\AdvertisementType;
 use App\Interfaces\IAdvertisementService;
 use App\Service\AdvertisementService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\File\MimeType\FileinfoMimeTypeGuesser;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Intl\Intl;
 use Symfony\Component\Security\Core\Security;
 
@@ -135,15 +138,19 @@ class AdvertisementController extends AbstractController
         if( $adverType == Advertisement::ADVERTISEMENT_SEND  ){
 
             $adverTitle = "Mes Colis";
+            $isSend     = true;
         }else {
             $adverTitle  = "Mes Trajets";
+            $isSend      = false;
         }
 
         return $this->render('advertisement/advertisementList.html.twig',
             [
                 'advertisements' => $advertisements,
                 'adverTitle'     => $adverTitle,
-                'myAdver'        => true
+                'myAdver'        => true,
+                'isSend'         => $isSend
+
             ]
         );
 
@@ -158,17 +165,47 @@ class AdvertisementController extends AbstractController
         if( $adverType == Advertisement::ADVERTISEMENT_SEND  ){
 
             $adverTitle = "Colis";
+            $isSend      = true;
         }else {
             $adverTitle  = "Trajets";
+            $isSend      = false;
         }
 
         return $this->render('advertisement/advertisementList.html.twig', [
             'advertisements' => $advertisements,
             'adverTitle'     => $adverTitle,
-            'myAdver'        => false
-        ]
+            'myAdver'        => false,
+            'isSend'         => $isSend
+
+            ]
         );
 
+    }
+    public function downloadDeclarationConfidence()
+    {
+        $pdfPath = $this->getParameter('kernel.project_dir') . '/public/doc/DECLARATION-DE-CONFIANCE.pdf';
+
+        $response = new BinaryFileResponse($pdfPath);
+
+        // To generate a file download, you need the mimetype of the file
+        $mimeTypeGuesser = new FileinfoMimeTypeGuesser();
+
+        // Set the mimetype with the guesser or manually
+        if($mimeTypeGuesser->isSupported()){
+            // Guess the mimetype of the file according to the extension of the file
+            $response->headers->set('Content-Type', $mimeTypeGuesser->guess($pdfPath));
+        }else{
+            // Set the mimetype of the file manually, in this case for a text file is text/plain
+            $response->headers->set('Content-Type', 'text/plain');
+        }
+
+        // Set content disposition inline of the file
+        $response->setContentDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            "DECLARATION-DE-CONFIANCE.pdf"
+        );
+
+        return $response;
     }
 
 }

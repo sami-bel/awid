@@ -63,6 +63,9 @@ show_advertisements:
     path: packet/show/{id}
     controller: App\Controller\AdvertisementController::showAdvertisement
 
+download_declaration_confidence:
+    path: packet/downloadDeclarationConfidence
+    controller: App\Controller\AdvertisementController::downloadDeclarationConfidence
 #------------------------ Message Routes ----------------------------------- #
 
 add_message:
