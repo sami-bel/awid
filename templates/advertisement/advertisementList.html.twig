@@ -33,7 +33,7 @@
                     <!--Bottons-->
                     <ul class="my-colis-buttons">
                         {% if myAdver %}
-                            <li><a href="#" class="btn btn-success">Modifier</a></li>
+                            <li><a href="{{ path('update_advertisement', {'id':adver.id}) }}" class="btn btn-success">Modifier</a></li>
                             <li><button class="btn btn-danger" data-toggle="modal" data-target="#confirm_modal_{{ adver.id  }}">Supprimer</button></li>
                         {% endif %}
                         <li>

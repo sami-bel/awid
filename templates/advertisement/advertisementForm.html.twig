@@ -6,7 +6,9 @@
     <div class="body container form">
         <p><br /></p>
         <h3 class="txt_center">{{ adverTitle }}</h3>
-        <form class="center_form" method="post" action="{{ path("add_advertisement",{'adverType': adverType}) }}">
+        <form class="center_form" method="post"
+              action= {{ pathForm }}
+                >
             <!--mode de transport-->
             {{ form_row(form._token) }}
             <div class="form-group">
@@ -52,10 +54,24 @@
                 <label>
                     <input type="checkbox" name="condition" required value="1">
                     <a style="color:black;" href="{{ path('download_declaration_confidence') }}" target = "_blank">Oui, j'imprimme et je signe Le contrat de confiance</a>
+
+                    <span class="form-checkbox col-sm-12" style="color: black;">
+                        <input type="checkbox" name="condition" value="condition" required> Veuillez vérifier si à usage personnel et si l’ordonnance est obligatoire <br>
+                   </span>
+                    <span class="form-checkbox col-sm-12" style="color: black;">
+                        <input type="checkbox" name="condition" value="condition" required>Veuillez vérifier si l’objet est légalement transportable dans le pays de destination <br>
+                   </span>
+
+
                 </label>
             </div>
             <button type="submit" class="btn btnjcv">
-                Ajouter
+               {% if isAdd %}
+                   Ajouter
+               {% else %}
+                   Modifier
+               {% endif %}
+
             </button>
             {#{{ form_rest(form) }}#}
         </form>

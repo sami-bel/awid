@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Intl\Intl;
+use Symfony\Component\Routing\Route;
 use Symfony\Component\Security\Core\Security;
 
 class AdvertisementController extends AbstractController
@@ -52,6 +53,7 @@ class AdvertisementController extends AbstractController
         $adver = new Advertisement();
         $form  = $this->createForm(AdvertisementType::class, $adver);
         $user  = $this->securityService->getToken()->getUser();
+        $path  = $this->generateUrl("add_advertisement",['adverType' =>$adverType]);
 
         $form->handleRequest($request);
 
@@ -70,7 +72,7 @@ class AdvertisementController extends AbstractController
 
             $this->advertisementService->addAdvertisement($adver);
 
-            return $this->redirectToRoute('my_advertisements', array('adverType' => $adverType));
+            return $this->redirectToRoute('my_advertisements', array('adverType' => $adverType,  'isAdd' => false, 'pathForm' => $path));
         }
 
         if( $adverType == Advertisement::ADVERTISEMENT_SEND_TYPE  ){
@@ -84,7 +86,9 @@ class AdvertisementController extends AbstractController
             [
                 'form'       => $form->createView(),
                 'adverTitle' => $adverTitle,
-                'adverType'  => $adverType
+                'adverType'  => $adverType,
+                'isAdd' => true,
+                'pathForm' => $path
             ]);
     }
 
@@ -105,13 +109,14 @@ class AdvertisementController extends AbstractController
         }
         $form = $this->createForm(AdvertisementType::class, $adver);
         $user = $this->securityService->getToken()->getUser();
+        $path = $this->generateUrl("update_advertisement",['id' =>$adver->getId()]);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->advertisementService->updateAdvertisement($adver);
 
-            return new Response('ok');
+            return $this->redirectToRoute('my_advertisements', array('adverType' => $adver->getAdvertisementType(),  'isAdd' => false, 'pathForm' => $path));
         }
 
         if( $adver->getAdvertisementType() == Advertisement::ADVERTISEMENT_SEND_TYPE  ){
@@ -121,7 +126,15 @@ class AdvertisementController extends AbstractController
             $adverTitle  = "Modifier un Trajet";
         }
 
-        return $this->render('advertisement/advertisementForm.html.twig', ['form' => $form->createView(), 'adverTitle' => $adverTitle,]);
+
+
+        return $this->render('advertisement/advertisementForm.html.twig',
+            [    'form' => $form->createView(),
+                'adverTitle' => $adverTitle,
+                'adverType'  => $adver->getAdvertisementType(),
+                'isAdd' => false,
+                'pathForm' => $path
+            ]);
     }
 
     public function deleteAdvertisement(Request $request, int $id)
