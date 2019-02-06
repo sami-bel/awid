@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\UserInterface;
-use Symfony\Component\Intl\Intl;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdvertisementRepository")
@@ -49,20 +49,20 @@ class Advertisement
      */
     private $title;
 
-    /**
-     * @ORM\Column(type="integer", length=255, nullable=true)
-     */
-    private $transportMode;
+//    /**
+//     * @ORM\Column(type="integer", length=255, nullable=true)
+//     */
+//    private $transportMode;
 
-    /**
-     * @ORM\Column(type="integer", length=255, nullable=true)
-     */
-    private $weight;
+//    /**
+//     * @ORM\Column(type="integer", length=255, nullable=true)
+//     */
+//    private $weight;
 
-    /**
-     * @ORM\Column(type="integer", length=255, nullable=true)
-     */
-    private $packageType;
+//    /**
+//     * @ORM\Column(type="integer", length=255, nullable=true)
+//     */
+//    private $packageType;
 
     /**
      * @ORM\Column(type="integer", length=255, nullable=true)
@@ -277,48 +277,48 @@ class Advertisement
     }
 
 
-    /**
-     * @return mixed
-     */
-    public function getTransportMode()
-    {
-        return $this->transportMode;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getTransportMode()
+//    {
+//        return $this->transportMode;
+//    }
+//
+//
+//    /**
+//     * @param mixed $transportMode
+//     *
+//     * @return Advertisement
+//     */
+//    public function setTransportMode($transportMode)
+//    {
+//        $this->transportMode = $transportMode;
+//
+//        return $this;
+//    }
 
 
-    /**
-     * @param mixed $transportMode
-     *
-     * @return Advertisement
-     */
-    public function setTransportMode($transportMode)
-    {
-        $this->transportMode = $transportMode;
-
-        return $this;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-
-    /**
-     * @param mixed $weight
-     *
-     * @return Advertisement
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-
-        return $this;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getWeight()
+//    {
+//        return $this->weight;
+//    }
+//
+//
+//    /**
+//     * @param mixed $weight
+//     *
+//     * @return Advertisement
+//     */
+//    public function setWeight($weight)
+//    {
+//        $this->weight = $weight;
+//
+//        return $this;
+//    }
 
     /**
      * @return mixed
@@ -359,21 +359,21 @@ class Advertisement
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPackageType()
-    {
-        return $this->packageType;
-    }
-
-    /**
-     * @param mixed $packageType
-     */
-    public function setPackageType($packageType)
-    {
-        $this->packageType = $packageType;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getPackageType()
+//    {
+//        return $this->packageType;
+//    }
+//
+//    /**
+//     * @param mixed $packageType
+//     */
+//    public function setPackageType($packageType)
+//    {
+//        $this->packageType = $packageType;
+//    }
 
     /**
      * @return integer

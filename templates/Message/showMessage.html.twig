@@ -13,9 +13,9 @@
                 <div class="m-t-15">
                     <form id="sami" class="form-material" action="{{ path('add_message', {"toUserId" :message.fromUser.id }) }}">
                         <div class="form-group form-primary">
-                            <textarea name="messageContent" class="form-control" id="exampleTextarea-1" required=""></textarea>
+                            <textarea name="messageContent" placeholder="Ecrire Une Reponce..." class="form-control" id="exampleTextarea-1" required=""></textarea>
                             <span class="form-bar"></span>
-                            <label class="float-label">Ecrire Une Reponce...</label>
+                            <label class="float-label"></label>
                             <button type="submit" class="btn btn-primary"> Envoyer </button>
                         </div>
                         <input type="hidden" name="test">

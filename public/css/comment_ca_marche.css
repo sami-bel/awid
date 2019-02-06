@@ -2,26 +2,26 @@ body {
   margin: 0;
   /*background-image: url(../images/background3.jpg);*/
 
-/*menu*/
-/*
-iv#myNavbar {
-    background: #ffffff;
-    border-radius: 5px;
-}
+  /*menu*/
+  /*
+  iv#myNavbar {
+      background: #ffffff;
+      border-radius: 5px;
+  }
 
-.navbar.navbar-default.hid {
-  margin: 0px;
-  border-radius: 0px;
-  padding-top: 5px;
-  height: 60px;
-  font-size: 20px;
-}
+  .navbar.navbar-default.hid {
+    margin: 0px;
+    border-radius: 0px;
+    padding-top: 5px;
+    height: 60px;
+    font-size: 20px;
+  }
 
-.navbar-brand {
-  padding: 5px;
+  .navbar-brand {
+    padding: 5px;
+  }
+  */
 }
-*/
-
 /*footer*/
 footer {
   background-color: #403d3b;

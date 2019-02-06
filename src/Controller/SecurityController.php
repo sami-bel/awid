@@ -153,11 +153,12 @@ class SecurityController extends AbstractController
             ? $this->tokenManager->getToken('authenticate')->getValue()
             : null;
 
-        return $this->renderLogin(array(
+        return $this->render('@FOSUser/Security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error' => $error,
             'csrf_token' => $csrfToken,
         ));
+
     }
 
 }

@@ -9,31 +9,16 @@
         <form class="center_form" method="post"
               action= {{ pathForm }}
                 >
-            <!--mode de transport-->
-            {{ form_row(form._token) }}
-            <div class="form-group">
-                <label for="type">Mode de transport</label>
-                {{ form_row(form.transportMode) }}
-            </div>
-
-            <div class="form-group">
-                <label for="type">Type</label>
-                {{ form_row(form.packageType) }}
-            </div>
-
-            <div class="form-group">
-                <label for="type">Poid</label>
-                {{ form_row(form.weight) }}
-            </div>
+                    {{ form_row(form._token) }}
 
             <label for="email">Trajet</label>
             <div class="form-group flex">
-                {{ form_row(form.fromCountry) }}
+                {{ form_row(form.fromCountry ,{'attr': {'class': 'form-control w25'}}) }}
                 <div class="form-group w25">
                     {{ form_row(form.fromCity) }}
                 </div>
                 <i class="fa fa-long-arrow-right fa-2x" aria-hidden="true"></i>
-                {{ form_row(form.toCountry) }}
+                {{ form_row(form.toCountry ,{'attr': {'class': 'form-control w25'}}) }}
                 <div class="form-group w25">
                     {{ form_row(form.toCity) }}
                 </div>
@@ -50,31 +35,35 @@
                 {{ form_row(form.description) }}
             </div>
             <!--check-->
+
             <div class="checkbox">
                 <label>
                     <input type="checkbox" name="condition" required value="1">
-                    <a style="color:black;" href="{{ path('download_declaration_confidence') }}" target = "_blank">Oui, j'imprimme et je signe Le contrat de confiance</a>
-
-                    <span class="form-checkbox col-sm-12" style="color: black;">
-                        <input type="checkbox" name="condition" value="condition" required> Veuillez vérifier si à usage personnel et si l’ordonnance est obligatoire <br>
-                   </span>
-                    <span class="form-checkbox col-sm-12" style="color: black;">
-                        <input type="checkbox" name="condition" value="condition" required>Veuillez vérifier si l’objet est légalement transportable dans le pays de destination <br>
-                   </span>
-
-
+                    <a style="color:black;"> <strong>Medicaments: </strong>Veuillez vérifier si à usage personnel et si l’ordonnance est obligatoire</a>
+                </label>
+                <label>
+                    <input type="checkbox" name="condition" required value="1">
+                    <a style="color:black;"><strong>Objets: </strong>Veuillez vérifier si l’objet est légalement transportable dans le pays de destination !</a>
+                </label>
+                <label>
+                    <input type="checkbox" name="condition" required value="1">
+                    <a style="color:black;" href="docs/DECLARATION-DE-CONFIANCE.pdf" target = "_blank">Oui, j'imprime et je signe Le contrat de confiance</a>
                 </label>
             </div>
-            <button type="submit" class="btn btnjcv">
-               {% if isAdd %}
-                   Ajouter
-               {% else %}
-                   Modifier
-               {% endif %}
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn">
+                    <i class="fas fa-check" style="padding-right: 5px"></i>
+                    {% if isAdd %}
+                        Publier
+                    {% else %}
+                        Modifier
+                    {% endif %}
 
-            </button>
-            {#{{ form_rest(form) }}#}
+                </button>
+            </div>
+            <br>
         </form>
 
     </div>
+
 {% endblock body %}

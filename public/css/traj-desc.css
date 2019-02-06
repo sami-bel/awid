@@ -1,4 +1,7 @@
 
+
+
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -185,7 +188,6 @@ iframe {
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #f2f2f2;
 
 }
 
@@ -225,10 +227,7 @@ iframe {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.0);
-}
-.txt1 {
-    color: black;
+    background: rgba(0,0,0,0.8);
 }
 
 
@@ -421,6 +420,10 @@ textarea.input100 {
 
     .contact100-more {
         width: 40%;
+        padding-left: 40px;
+    }
+    .wrap-contact100{
+        flex-direction: column-reverse;
     }
 }
 

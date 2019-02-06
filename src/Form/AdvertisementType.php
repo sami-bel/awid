@@ -41,18 +41,18 @@ class AdvertisementType extends AbstractType
     {
         $builder
 
-            ->add('transportMode', ChoiceType::class, [
-                'choices' => $this->transportMode,
-                'label' => false,
-            ])
-            ->add('weight', ChoiceType::class, [
-                'choices' => $this->weight,
-                'label' => false,
-            ])
-            ->add('packageType', ChoiceType::class, [
-                'choices' => $this->packageType,
-                'label' => false,
-            ])
+//            ->add('transportMode', ChoiceType::class, [
+//                'choices' => $this->transportMode,
+//                'label' => false,
+//            ])
+//            ->add('weight', ChoiceType::class, [
+//                'choices' => $this->weight,
+//                'label' => false,
+//            ])
+//            ->add('packageType', ChoiceType::class, [
+//                'choices' => $this->packageType,
+//                'label' => false,
+//            ])
             ->add('fromCountry',ChoiceType::class, [
                 'choices' => array_combine(array_values(Intl::getRegionBundle()->getCountryNames()),array_keys(Intl::getRegionBundle()->getCountryNames())),
                 'label' => false,

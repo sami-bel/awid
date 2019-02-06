@@ -18,10 +18,10 @@
 
                     {% if app.user %}
                         <div class="col-md-offset-2 col-md-3">
-                            <button class="btn btnjbl vertf" name="button" id="myBtn">Déposer une annonce</button>
+                            <a class="btn btnjbl vertf" name="button" id="myBtn" href="{{ path('add_advertisement',{'adverType' : 1}) }}">Déposer une annonce</a>
                         </div><!-- .col-md-3-->
                         <div class="col-md-offset-1 col-md-3">
-                            <button class="btn btnjbr maronf" name="button">Voir les annonces</button>
+                            <a class="btn btnjbr maronf" name="button" href="{{ path('all_advertisements',{'adverType' : 2}) }}">Voir les annonces</a>
                         </div><!-- .col-md-3-->
                     {% else %}
                         <div class="col-md-offset-2 col-md-3">

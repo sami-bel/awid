@@ -2,8 +2,10 @@
 
 // ------------------------------ Events -------------------------------
 
-$("#form_login").submit(function( event ) {
+console.log('sami');
+$(".form-login, #form_login").submit(function( event ) {
 
+    console.log('ici00');
   var data = $(this).serialize();
   var url  = $(this).attr("action");
 
@@ -13,15 +15,17 @@ $("#form_login").submit(function( event ) {
     type : 'POST',
     success : function(data, statut){
 
+        console.log(data);
         if(typeof data =='object')
         {
             if(data.error != "undefined"){
-                $("#error_login").html(data.error);
+                $("#error_login, .error_login").html(data.error);
             }
         }
         else
         {
-            location.reload();
+            $(location).attr('href', '/');
+            // location.reload("/");
         }
     }
   });

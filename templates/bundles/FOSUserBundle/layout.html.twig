@@ -13,13 +13,17 @@
             {% endfor %}
         {% endfor %}
     {% endif %}
-
-    <div class="container-fluid splash" id="splash">
-
-        <div>
+<div class="body">
+    <div class="section1">
+        <div class="login-form">
             {% block fos_user_content %}
             {% endblock fos_user_content %}
-        </div>
+        </>
+    </div>
+</div>
+    <div class="container-fluid splash" id="splash">
+
+
    </div>
 
 {% endblock body %}
